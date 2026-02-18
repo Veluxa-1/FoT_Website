@@ -217,3 +217,52 @@
 			});
 
 })(jQuery);
+
+/* Age verification: modal control + persistence */
+(function() {
+	function showAgeModal() {
+		var $modal = document.getElementById('age-modal');
+		if (!$modal) return;
+		$modal.setAttribute('aria-hidden','false');
+		document.body.classList.add('age-locked');
+	}
+
+	function hideAgeModal() {
+		var $modal = document.getElementById('age-modal');
+		if (!$modal) return;
+		$modal.setAttribute('aria-hidden','true');
+		document.body.classList.remove('age-locked');
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		try {
+			var confirmed = localStorage.getItem('ageConfirmed');
+			if (confirmed === 'yes') return;
+
+			showAgeModal();
+
+			var accept = document.getElementById('age-accept');
+			var decline = document.getElementById('age-decline');
+
+			if (accept) accept.addEventListener('click', function() {
+				localStorage.setItem('ageConfirmed','yes');
+				hideAgeModal();
+			});
+
+			if (decline) decline.addEventListener('click', function() {
+				// Redirect away if user is not of age
+				window.location.href = 'https://x.com/Veluxa_';
+			});
+
+			// Close with Escape (acts like decline)
+			document.addEventListener('keydown', function(e) {
+				if (e.key === 'Escape') {
+					window.location.href = 'https://x.com/Veluxa_';
+				}
+			});
+
+		} catch (e) {
+			console.warn('Age modal error', e);
+		}
+	});
+})();
