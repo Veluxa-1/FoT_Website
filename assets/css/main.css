@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
-@import url("fontawesome-all.min.css");
+/* Google Fonts and Font Awesome are preloaded from the HTML to avoid render-blocking @import rules */
+
 
 /*
 	Big Picture by HTML5 UP
