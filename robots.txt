@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://futaontop.com/sitemap.xml
