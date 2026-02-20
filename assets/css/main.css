@@ -2244,7 +2244,7 @@ input, select, textarea {
 /* Intro */
 
 	#intro {
-		background: url("images/overlay.png"), url("https://i.ibb.co/FLjTdRv0/1-141-prison-copy.jpg");
+		background: url("images/overlay.png"), url("https://i.ibb.co/zV158xQ6/1-141-prison-copy-result.webp");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, bottom center;
@@ -2301,7 +2301,7 @@ body.age-locked > *:not(#age-modal) {
 /* One */
 
 	#one {
-		background: url("images/overlay.png"), url("https://i.ibb.co/5XZqxnz8/1-149-prison.jpg");
+		background: url("images/overlay.png"), url("https://i.ibb.co/KzqDFkgd/1-149-prison-result.webp");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
@@ -2310,7 +2310,7 @@ body.age-locked > *:not(#age-modal) {
 /* Two */
 
 	#two {
-		background: url("images/overlay.png"), url("https://i.ibb.co/Ng8TvFTJ/1-7-wedding-1.jpg");
+		background: url("images/overlay.png"), url("https://i.ibb.co/xqcXy0bV/1-7-wedding-1-result.webp");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
