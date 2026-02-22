@@ -251,13 +251,13 @@
 
 			if (decline) decline.addEventListener('click', function() {
 				// Redirect away if user is not of age
-				window.location.href = 'https://x.com/Veluxa_';
+				window.location.href = 'https://x.com/Futa_on_Top';
 			});
 
 			// Close with Escape (acts like decline)
 			document.addEventListener('keydown', function(e) {
 				if (e.key === 'Escape') {
-					window.location.href = 'https://x.com/Veluxa_';
+					window.location.href = 'https://x.com/Futa_on_Top';
 				}
 			});
 
