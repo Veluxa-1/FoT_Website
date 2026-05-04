@@ -2358,172 +2358,239 @@ body.age-locked > *:not(#age-modal) {
 
 		}
 
-
-
 /* ============================================================
-   GAME CARDS — Homepage intro dual-game layout
+   GAME CARDS — Homepage intro fit-to-viewport layout
+   ============================================================
+   Strategy: #header nav is ~4em tall. Intro section fills
+   exactly (100dvh - nav-h). Everything inside compresses
+   via flex/min-height rather than overflowing.
    ============================================================ */
 
+:root {
+  --nav-h: 4em;
+  --card-gap: 1.5em;
+}
+
+/* Intro section: exactly one viewport minus the nav */
+#intro.fullscreen {
+  height: calc(100dvh - var(--nav-h)) !important;
+  min-height: 0 !important;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Inner content: flex column so header/cards/footer share space */
+#intro .intro-content {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em 2em;
+  gap: 0.75em;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.intro-header {
+  flex-shrink: 0;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.intro-header h2 { margin: 0; line-height: 1.1; }
+
+.intro-footer { flex-shrink: 0; margin-top: 0.25em; }
+
+/* Two-column card grid */
 .game-cards {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 2.5em;
-	width: 100%;
-	max-width: 1100px;
-	margin: 1.5em auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--card-gap);
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
+/* Individual card */
 .game-card {
-	display: flex;
-	flex-direction: column;
-	gap: 1.25em;
-	background: rgba(0,0,0,0.38);
-	border: 1px solid rgba(255,255,255,0.12);
-	border-radius: 0.6em;
-	overflow: hidden;
-	padding-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0,0,0,0.40);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0.5em;
+  overflow: hidden;
+  min-height: 0;
 }
 
-.game-capsule-wrap { width: 100%; line-height: 0; }
+/* Capsule image at 50% of 920x430 */
+.game-capsule-wrap {
+  flex-shrink: 0;
+  line-height: 0;
+  min-height: 0;
+}
 
 .game-capsule {
-	width: 100%;
-	height: auto;
-	aspect-ratio: 920 / 430;
-	object-fit: cover;
-	display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 920 / 430;
+  object-fit: cover;
+  display: block;
+  max-height: 20vh;
 }
 
+/* Card body */
 .game-card__body {
-	padding: 0 1.5em;
-	display: flex;
-	flex-direction: column;
-	gap: 0.75em;
-	flex: 1;
+  padding: 0.6em 1.1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .game-card__title {
-	font-size: 1.4em;
-	font-weight: 900;
-	letter-spacing: -0.03em;
-	color: #ffffff;
-	margin: 0;
+  font-size: clamp(0.9em, 1.5vw, 1.25em);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+  flex-shrink: 0;
 }
 
 .game-card__desc {
-	font-size: 0.85em;
-	line-height: 1.6em;
-	color: rgba(255,255,255,0.75);
-	margin: 0;
+  font-size: clamp(0.7em, 1.1vw, 0.82em);
+  line-height: 1.5em;
+  color: rgba(255,255,255,0.72);
+  margin: 0;
+  flex-shrink: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .game-card__actions {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75em;
-	margin-top: auto;
-	padding-top: 0.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45em;
+  flex-shrink: 0;
+  margin-top: auto;
+  padding-top: 0.3em;
 }
 
+/* Play Now */
 .btn-play {
-	display: inline-block;
-	background: #98c593;
-	color: #ffffff !important;
-	border: none;
-	border-radius: 3.5em;
-	padding: 0 1.75em;
-	height: 3em;
-	line-height: 3em;
-	font-size: 0.9em;
-	font-weight: 900;
-	text-decoration: none;
-	text-align: center;
-	transition: background-color 0.2s ease-in-out;
-	letter-spacing: 0.04em;
-	width: 100%;
+  display: block;
+  background: #98c593;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 3em;
+  padding: 0 1.5em;
+  height: 2.6em;
+  line-height: 2.6em;
+  font-size: clamp(0.72em, 1vw, 0.85em);
+  font-weight: 900;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease-in-out;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 .btn-play:hover { background: #a8cea4; color: #ffffff !important; }
 
+/* Social buttons row */
 .game-card__links {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35em;
 }
 
 .btn-social {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.4em;
-	padding: 0 0.9em;
-	height: 2.4em;
-	line-height: 2.4em;
-	border-radius: 3em;
-	font-size: 0.78em;
-	font-weight: 700;
-	text-decoration: none;
-	border: 1px solid transparent;
-	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
-	white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0 0.75em;
+  height: 2.1em;
+  border-radius: 3em;
+  font-size: clamp(0.65em, 0.9vw, 0.75em);
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease-in-out;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.btn-patreon { background: #ff424d; color: #ffffff !important; }
+.btn-patreon    { background: #ff424d; color: #ffffff !important; }
 .btn-patreon:hover { background: #e03040; color: #ffffff !important; }
-
 .btn-subscribestar { background: #1a80c8; color: #ffffff !important; }
 .btn-subscribestar:hover { background: #1569a8; color: #ffffff !important; }
+.btn-steam { background: rgba(255,255,255,0.10); color: #ffffff !important; border-color: rgba(255,255,255,0.25); }
+.btn-steam:hover { background: rgba(255,255,255,0.20); color: #ffffff !important; }
 
-.btn-steam { background: rgba(255,255,255,0.1); color: #ffffff !important; border-color: rgba(255,255,255,0.25); }
-.btn-steam:hover { background: rgba(255,255,255,0.2); color: #ffffff !important; }
-
-/* Steam Wishlist Widget */
+/* Steam Wishlist widget */
 .steam-wishlist-wrap {
-	padding: 0 1.5em;
-	overflow-x: auto;
-	-webkit-overflow-scrolling: touch;
+  flex-shrink: 0;
+  padding: 0 1.1em 0.75em;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .steam-wishlist-frame {
-	display: block;
-	width: 646px;
-	max-width: 100%;
-	height: 190px;
-	border: none;
-	border-radius: 0.4em;
-	background: #1b2838;
+  display: block;
+  width: 646px;
+  max-width: 100%;
+  height: 175px;
+  border: none;
+  border-radius: 0.35em;
+  background: #1b2838;
 }
 
-/* Stack cards on tablet */
-@media screen and (max-width: 1100px) {
-	.game-cards { grid-template-columns: 1fr; max-width: 640px; }
+/* ============================================================
+   RESPONSIVE — progressive hiding as viewport shrinks
+   ============================================================ */
+
+/* Wide laptop: hide Steam widget when cards get too narrow */
+@media screen and (max-width: 1200px) {
+  .steam-wishlist-wrap { display: none; }
 }
 
-/* Hide Steam wishlist widget below 900px — too wide */
+/* Narrow laptop: tighten spacing */
+@media screen and (max-width: 1024px) {
+  :root { --card-gap: 1.1em; }
+  #intro .intro-content { padding: 1em 1.5em; }
+  .game-card__body { padding: 0.5em 0.9em; }
+}
+
+/* Tablet portrait: show only 1 card, stacked */
 @media screen and (max-width: 900px) {
-	.steam-wishlist-wrap { display: none; }
+  .game-cards {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .game-card:nth-child(2) { display: none; }
 }
 
-/* Mobile tweaks */
+/* Mobile: trim description, icon-only social buttons */
 @media screen and (max-width: 736px) {
-	.game-cards { gap: 1.75em; }
-	.game-card__body { padding: 0 1em; }
-	.game-card__title { font-size: 1.2em; }
+  :root { --nav-h: 3.5em; }
+  #intro .intro-content { padding: 1em; gap: 0.5em; }
+  .game-card__desc { display: none; }
+  .game-card__body { padding: 0.5em 0.75em; gap: 0.35em; }
+  .game-cards { max-width: 100%; }
+  .btn-social span { display: none; }
+  .btn-social { padding: 0 0.7em; }
 }
 
 @media screen and (max-width: 480px) {
-	.game-card__links { flex-direction: column; }
-	.btn-social { width: 100%; justify-content: center; }
-}
-
-/* Allow intro to expand beyond viewport height for the cards */
-#intro.fullscreen { min-height: 100vh; height: auto !important; }
-
-#intro .content {
-	padding: 5em 2em 5em 2em;
-	max-width: 1200px;
-	margin: 0 auto;
-	width: 100%;
-}
-
-@media screen and (max-width: 736px) {
-	#intro .content { padding: 4em 1em 4em 1em; }
+  .game-card__links { gap: 0.3em; }
+  .game-capsule { max-height: 16vh; }
 }
