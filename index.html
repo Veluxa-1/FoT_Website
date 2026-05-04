@@ -133,27 +133,40 @@
 	  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
 	}
 
-	.game-capsule-wrap { flex-shrink: 0; line-height: 0; }
+	.game-capsule-wrap {
+	  flex-shrink: 0; line-height: 0;
+	  position: relative; overflow: hidden;
+	}
 	.game-capsule {
-	  width: 100%; height: auto; aspect-ratio: 920 / 430;
-	  object-fit: cover; display: block; max-height: 17vh;
+	  width: 100%; display: block;
+	  aspect-ratio: 920 / 430;
+	  object-fit: cover; object-position: center top;
+	  max-height: 20vh;
 	}
 
 	.game-card__body {
-	  padding: 0.6em 1em 0.5em;
+	  padding: 0 0 0.55em;
 	  display: flex; flex-direction: column;
 	  align-items: center; text-align: center;
 	  gap: 0.3em; flex: 1 1 auto; min-height: 0;
+	  position: relative;
 	}
 
 	.game-card__title {
 	  font-size: clamp(0.9em, 1.4vw, 1.15em);
 	  font-weight: 900; letter-spacing: 0.06em;
 	  text-transform: uppercase; color: #fff; margin: 0; flex-shrink: 0;
+	  width: 100%;
+	  padding: 0.55em 1em 0.45em;
+	  background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 100%);
+	  margin-top: -2.5em;
+	  position: relative; z-index: 1;
+	  backdrop-filter: blur(2px);
+	  -webkit-backdrop-filter: blur(2px);
 	}
 	.game-card__title::after {
-	  content: ''; display: block; width: 2.5em; height: 2px;
-	  margin: 0.35em auto 0;
+	  content: ''; display: block; width: 2em; height: 2px;
+	  margin: 0.3em auto 0;
 	  background: linear-gradient(90deg, transparent, rgba(255,210,100,0.7), transparent);
 	  border-radius: 2px;
 	}
@@ -168,7 +181,8 @@
 	.game-card__actions {
 	  display: flex; flex-direction: column; align-items: center;
 	  gap: 0.4em; flex-shrink: 0; width: 100%;
-	  margin-top: auto; padding-top: 0.3em;
+	  margin-top: auto; padding: 0.3em 0.75em 0;
+	  box-sizing: border-box;
 	}
 
 	.btn-play {
@@ -211,7 +225,7 @@
 	  border: none; border-radius: 0.4em; background: #1b2838;
 	}
 
-	@media screen and (max-width: 1100px) { .steam-wishlist-wrap { display: none; } }
+	@media screen and (max-width: 1280px) { .steam-wishlist-wrap { display: none; } }
 	@media screen and (max-width: 1024px) {
 	  #intro .intro-content { padding: 0.8em 1.25em 0.6em; }
 	  .game-card__body { padding: 0.5em 0.85em 0.4em; }
@@ -238,12 +252,12 @@
 	  }
 
 	  .game-card__body {
-	    padding: 0.45em 0.75em 0.5em;
+	    padding: 0 0 0.45em;
 	    flex-direction: column; align-items: center; text-align: center;
 	    gap: 0.3em; min-height: 0;
 	  }
 
-	  .game-card__title { font-size: 0.82em; letter-spacing: 0.05em; }
+	  .game-card__title { font-size: 0.82em; letter-spacing: 0.05em; padding: 0.45em 0.8em 0.35em; margin-top: -2em; }
 	  .game-card__title::after { margin: 0.2em auto 0; }
 	  .game-card__desc { display: none; }
 
@@ -254,7 +268,7 @@
 	    justify-content: center;
 	    flex-wrap: nowrap;
 	    gap: 0.35em;
-	    margin-top: 0; padding-top: 0; width: 100%;
+	    margin-top: 0; padding: 0 0.6em; width: 100%;
 	    box-sizing: border-box;
 	  }
 
