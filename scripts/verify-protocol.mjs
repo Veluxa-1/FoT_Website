@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const h = fs.readFileSync('index.html', 'utf8');
+const p = h.match(/id="vb-page-2"[\s\S]*?<\/article>/)[0];
+console.log('vb-pair', (p.match(/vb-pair/g) || []).length);
+console.log('dom card', /vb-card--dom/.test(p));
+console.log('contain p2', /vb-shot--contain/.test(p));
+console.log('kinks before session', p.indexOf('Kink Coefficients') < p.indexOf('Session Mathematics'));
+console.log('bride contain', /vb-sheet--bride[\s\S]{0,300}vb-shot--contain/.test(h));
+console.log('all meters', (p.match(/vb-meter"/g) || []).length);
+console.log('kinks', (p.match(/vb-kinklist[\s\S]*?<\/ul>/)[0].match(/<li>/g) || []).length);

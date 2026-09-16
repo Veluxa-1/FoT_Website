@@ -1,524 +1,468 @@
 <!DOCTYPE HTML>
 <!--
-	Big Picture by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Big Picture by HTML5 UP (customized for Futa on Top)
+	html5up.net | @ajlkn | CCA 3.0
 -->
-						<!-- <p>Welcome to <strong>Big Picture</strong> a responsive site template designed by <a href="https://html5up.net">HTML5 UP</a><br />
-					and released for free under the <a href="https://html5up.net/license">Creative Commons Attribution license</a>.</p> -->
 <html lang="en">
 	<head>
-		<title>Futa on Top &amp; Futaheim — Adult Visual Novels</title>
-		<link rel="icon" type="image/x-icon" href="/favicon.ico">
-		<link rel="icon" type="image/png" href="/favicon-48x48.png">
-		<meta charset="utf-8" />
-		<meta name="description" content="Two adult visual novels by Futa on Top. Futa on Top: a dystopian futa-dom universe where futa queens rewrite DNA. Futaheim: a vampire empress breeds a futa dynasty to topple the elven order. 18+ only." />
-		<meta name="keywords" content="futa on top, futaheim, futa visual novel, adult visual novel, futa game, futa on male, adult game, veluxa, steam adult game, patreon adult game" />
-		<meta name="author" content="Futa on Top" />
-		<meta name="theme-color" content="#111111" />
-		<link rel="canonical" href="https://futaontop.com/" />
-		<meta name="robots" content="index,follow" />
-		<meta property="og:site_name" content="Futa on Top" />
-		<meta property="og:title" content="Futa on Top &amp; Futaheim — Adult Visual Novels" />
-		<meta property="og:description" content="Two adult visual novels by Futa on Top. Futa on Top: dystopian futa-dom. Futaheim: vampire empress breeds a futa empire. 18+ only." />
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://futaontop.com/" />
-		<meta property="og:image" content="https://futaontop.com/images/fulls/1_141_prison copy_result.webp" />
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Futa on Top &amp; Futaheim — Adult Visual Novels" />
-		<meta name="twitter:description" content="Two adult visual novels by Futa on Top. Futa on Top &amp; Futaheim. 18+ only." />
-		<meta name="twitter:image" content="https://futaontop.com/images/fulls/1_141_prison copy_result.webp" />
-		<script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@graph": [
-		    {
-		      "@type": "VideoGame",
-		      "@id": "https://futaontop.com/#futa-on-top",
-		      "name": "Futa on Top",
-		      "url": "https://store.steampowered.com/app/4272570/Futa_on_Top/",
-		      "description": "A dystopian futa-dom visual novel where futa queens rule a galaxy and rewrite the DNA of their subjects. 18+ adult visual novel.",
-		      "genre": ["Adult", "Visual Novel", "Erotic"],
-		      "contentRating": "AO",
-		      "inLanguage": "en",
-		      "publisher": {"@id": "https://futaontop.com/#org"},
-		      "sameAs": ["https://www.patreon.com/futaontop","https://store.steampowered.com/app/4272570/"]
-		    },
-		    {
-		      "@type": "VideoGame",
-		      "@id": "https://futaontop.com/#futaheim",
-		      "name": "Futaheim",
-		      "url": "https://store.steampowered.com/app/4594450/",
-		      "description": "A vampire empress awakens after 1000 years to seduce, breed and dominate a dynasty of futa heirs and topple the elven order. 18+ adult visual novel.",
-		      "genre": ["Adult", "Visual Novel", "Erotic"],
-		      "contentRating": "AO",
-		      "inLanguage": "en",
-		      "publisher": {"@id": "https://futaontop.com/#org"},
-		      "sameAs": ["https://www.patreon.com/futaontop","https://store.steampowered.com/app/4594450/"]
-		    },
-		    {
-		      "@type": "Organization",
-		      "@id": "https://futaontop.com/#org",
-		      "name": "Futa on Top",
-		      "url": "https://futaontop.com/",
-		      "sameAs": ["https://www.patreon.com/futaontop","https://store.steampowered.com/publisher/futaontop","https://discord.gg/9Rv6EdeFwS"]
-		    },
-		    {
-		      "@type": "WebSite",
-		      "@id": "https://futaontop.com/#website",
-		      "url": "https://futaontop.com/",
-		      "name": "Futa on Top",
-		      "publisher": {"@id": "https://futaontop.com/#org"}
-		    }
-		  ]
-		}
-		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap" onload="this.rel='stylesheet'">
-		<link rel="preload" as="style" href="assets/css/fontawesome-all.min.css" onload="this.rel='stylesheet'">
-		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900&display=swap" />
-			<link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
-			<link rel="stylesheet" href="assets/css/noscript.css" />
-		</noscript>
-		<!-- Preload above-the-fold game capsules for LCP -->
-		<link rel="preload" as="image" href="images/capsule-futaheim.jpg" fetchpriority="high" />
-		<link rel="preload" as="image" href="images/capsule-futa-on-top.jpg" fetchpriority="high" />
-					<!-- Preload LCP images -->
-		<link rel="preload" as="image" href="images/capsule-futaheim.jpg" fetchpriority="high" />
-		<link rel="preload" as="image" href="images/capsule-futa-on-top.jpg" fetchpriority="high" />
-		<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
-	<style>
-	:root { --nav-h: 3em; }
-
-	#intro.main.fullscreen {
-	  height: calc(100dvh - var(--nav-h)) !important;
-	  min-height: 0 !important;
-	  overflow: hidden;
-	  display: flex !important;
-	  flex-direction: column;
-	  align-items: center;
-	  justify-content: center;
-	  padding: 0 !important;
-	}
-
-	#intro .intro-content {
-	  width: 100%; max-width: 1160px; height: 100%;
-	  display: flex; flex-direction: column;
-	  align-items: center; justify-content: center;
-	  padding: 1em 1.5em 0.75em; gap: 0.6em;
-	  box-sizing: border-box; overflow: hidden; margin: 0 auto;
-	}
-
-	.intro-header { flex-shrink: 0; text-align: center; }
-	.intro-header h2 {
-	  margin: 0 0 0.1em; line-height: 1;
-	  font-size: clamp(1.3em, 2.5vw, 2.2em);
-	  letter-spacing: 0.02em; text-transform: uppercase;
-	}
-	.intro-footer { flex-shrink: 0; margin-top: 0.15em; }
-
-	.game-cards {
-	  display: grid; grid-template-columns: 1fr 1fr;
-	  gap: 1.1em; width: 100%;
-	  flex: 0 1 auto; min-height: 0;
-	}
-
-	.game-card {
-	  display: flex; flex-direction: column; min-height: 0;
-	  max-height: 770px;          /* never taller than this */
-	  align-self: center;         /* vertically center in grid row */
-	  width: 100%;
-	  border-radius: 0.6em; overflow: hidden;
-	  background: linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
-	  border: 1px solid rgba(255,255,255,0.16);
-	  box-shadow: 0 2px 4px rgba(0,0,0,0.35), 0 8px 28px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
-	  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-	}
-
-	.game-capsule-wrap {
-	  flex-shrink: 0; line-height: 0;
-	  position: relative; overflow: hidden;
-	}
-	.game-capsule {
-	  width: 100%; display: block;
-	  aspect-ratio: 920 / 430;
-	  object-fit: cover; object-position: center top;
-	  max-height: min(20vh, 220px);
-	}
-
-	.game-card__body {
-	  padding: 0 0 0.55em;
-	  display: flex; flex-direction: column;
-	  align-items: center; text-align: center;
-	  gap: 0.3em; flex: 1 1 auto; min-height: 0;
-	  position: relative;
-	}
-
-	.game-card__title {
-	  font-size: clamp(0.9em, 1.4vw, 1.15em);
-	  font-weight: 900; letter-spacing: 0.06em;
-	  text-transform: uppercase; color: #fff; margin: 0; flex-shrink: 0;
-	  width: 100%;
-	  padding: 0.55em 1em 0.45em;
-	  background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 100%);
-	  margin-top: -2.5em;
-	  position: relative; z-index: 1;
-	  backdrop-filter: blur(2px);
-	  -webkit-backdrop-filter: blur(2px);
-	}
-	.game-card__title::after {
-	  content: ''; display: block; width: 2em; height: 2px;
-	  margin: 0.3em auto 0;
-	  background: linear-gradient(90deg, transparent, rgba(255,210,100,0.7), transparent);
-	  border-radius: 2px;
-	}
-
-	.game-card__desc {
-	  font-size: clamp(0.65em, 0.9vw, 0.78em); line-height: 1.5;
-	  color: rgba(255,255,255,0.65); margin: 0; flex-shrink: 1;
-	  overflow: hidden; display: -webkit-box;
-	  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-	}
-
-	.game-card__actions {
-	  display: flex; flex-direction: column; align-items: center;
-	  gap: 0.4em; flex-shrink: 0; width: 100%;
-	  margin-top: auto; padding: 0.3em 0.75em 0;
-	  box-sizing: border-box;
-	}
-
-	.btn-play {
-	  display: block; width: 100%;
-	  background: linear-gradient(135deg, #b8e0a8 0%, #7ec87a 100%);
-	  color: #1a3a18 !important; border: none; border-radius: 3em;
-	  padding: 0 1.5em; height: 2.4em; line-height: 2.4em;
-	  font-size: clamp(0.68em, 0.95vw, 0.82em); font-weight: 900;
-	  text-decoration: none; text-align: center; letter-spacing: 0.08em;
-	  text-transform: uppercase;
-	  transition: filter 0.18s ease, transform 0.12s ease;
-	  box-shadow: 0 2px 10px rgba(120,200,100,0.35);
-	}
-	.btn-play:hover { filter: brightness(1.1); transform: translateY(-1px); color: #1a3a18 !important; }
-
-	.game-card__links { display: flex; justify-content: center; gap: 0.4em; width: 100%; }
-
-	.btn-social {
-	  display: inline-flex; align-items: center; justify-content: center;
-	  gap: 0.4em; padding: 0 0.85em; height: 2em; border-radius: 3em;
-	  font-size: clamp(0.6em, 0.8vw, 0.7em); font-weight: 700;
-	  text-decoration: none; border: 1px solid transparent; letter-spacing: 0.04em;
-	  transition: filter 0.18s ease, transform 0.12s ease;
-	  white-space: nowrap; flex-shrink: 0;
-	}
-	.btn-social:hover { filter: brightness(1.15); transform: translateY(-1px); }
-	.btn-social .icon { font-size: 1em; line-height: 1; }
-	.btn-social span { display: inline; }
-
-	.btn-patreon    { background: #ff424d; color: #fff !important; box-shadow: 0 2px 8px rgba(255,66,77,0.3); }
-	.btn-subscribestar { background: #1a80c8; color: #fff !important; box-shadow: 0 2px 8px rgba(26,128,200,0.3); }
-	.btn-steam { background: rgba(255,255,255,0.12); color: #fff !important; border-color: rgba(255,255,255,0.3); box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
-	.btn-itch    { background: #fa5c5c; color: #fff !important; box-shadow: 0 2px 8px rgba(250,92,92,0.3); }
-	.btn-discord { background: #5865f2; color: #fff !important; box-shadow: 0 2px 8px rgba(88,101,242,0.3); }
-
-	.steam-wishlist-wrap {
-	  flex-shrink: 0; width: 100%; padding: 0 0.75em 0.7em;
-	  box-sizing: border-box; overflow: hidden;
-	}
-	.steam-wishlist-frame {
-	  display: block; width: 100%; height: 190px;
-	  border: none; border-radius: 0.4em; background: #1b2838;
-	}
-
-	@media screen and (max-width: 1280px) { .steam-wishlist-wrap { display: none; } }
-	@media screen and (max-width: 1024px) {
-	  #intro .intro-content { padding: 0.8em 1.25em 0.6em; }
-	  .game-card__body { padding: 0.5em 0.85em 0.4em; }
-	}
-
-	@media screen and (max-width: 860px) {
-	  :root { --nav-h: 2.5em; }
-	  #intro .intro-content { padding: 0.6em 0.7em 0.5em; gap: 0.4em; }
-	  .intro-header h2 { font-size: 1.3em; }
-
-	  .game-cards {
-	    grid-template-columns: 1fr;
-	    max-width: 440px; margin: 0 auto;
-	    gap: 0.55em; overflow-y: auto; flex: 0 0 auto;
-	  }
-
-	  .game-card { flex-direction: column; height: auto; border-radius: 0.5em; }
-
-	  .game-capsule-wrap { width: 100%; }
-	  .game-capsule {
-	    width: 100%; display: block;
-	    aspect-ratio: 920 / 430; max-height: 44vw;
-	    object-fit: cover; object-position: center top;
-	  }
-
-	  .game-card__body {
-	    padding: 0 0 0.45em;
-	    flex-direction: column; align-items: center; text-align: center;
-	    gap: 0.3em; min-height: 0;
-	  }
-
-	  .game-card__title { font-size: 0.82em; letter-spacing: 0.05em; padding: 0.45em 0.8em 0.35em; margin-top: -2em; }
-	  .game-card__title::after { margin: 0.2em auto 0; }
-	  .game-card__desc { display: none; }
-
-	  .game-card__actions {
-	    display: flex;
-	    flex-direction: row;
-	    align-items: center;
-	    justify-content: center;
-	    flex-wrap: nowrap;
-	    gap: 0.35em;
-	    margin-top: 0; padding: 0 0.6em; width: 100%;
-	    box-sizing: border-box;
-	  }
-
-	  .game-card__links { display: contents; }
-
-	  .btn-play {
-	    flex: 1 1 auto;
-	    min-width: 0; width: auto;
-	    display: flex; align-items: center; justify-content: center;
-	    padding: 0 0.6em;
-	    height: 2.6em; line-height: 1; font-size: 0.75em;
-	    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-	  }
-
-	  .btn-social {
-	    flex: 0 0 2.6em;
-	    width: 2.6em; height: 2.6em;
-	    padding: 0; border-radius: 50%;
-	    font-size: 1em; gap: 0;
-	  }
-	  .btn-social span { display: none !important; }
-	  .btn-social .icon { font-size: 1.05em; margin: 0; line-height: 1; }
-	}
-
-	@media screen and (max-width: 400px) {
-	  .game-capsule { max-height: 40vw; }
-	  .game-card__title { font-size: 0.75em; }
-	  .intro-header h2 { font-size: 1.05em; }
-	  .btn-play { font-size: 0.68em; }
-	  .btn-social { flex: 0 0 2.3em; width: 2.3em; height: 2.3em; }
-	}
-	</style>
+ <title>Futa on Top & Futaheim - Adult Futa Visual Novels (18+)</title>
+ <link rel="icon" type="image/x-icon" href="/favicon.ico">
+ <link rel="icon" type="image/png" href="/favicon-48x48.png">
+ <meta charset="utf-8" />
+ <meta name="description" content="Adult futa visual novels by Futa on Top. Futa on Top is out on Steam with a free demo. Futaheim chapters on Patreon. Free public posts. 18+ only." />
+ <meta name="keywords" content="futa on top, futaheim, futa visual novel, adult visual novel, futa game, steam adult game, patreon adult game" />
+ <meta name="author" content="Futa on Top" />
+ <meta name="theme-color" content="#07070a" />
+ <link rel="canonical" href="https://futaontop.com/" />
+ <meta name="robots" content="index,follow" />
+ <meta property="og:site_name" content="Futa on Top" />
+ <meta property="og:title" content="Futa on Top & Futaheim - Adult Futa Visual Novels" />
+ <meta property="og:description" content="Futa on Top out on Steam (free demo). Futaheim on Patreon. Free public posts. 18+." />
+ <meta property="og:type" content="website" />
+ <meta property="og:url" content="https://futaontop.com/" />
+ <meta property="og:image" content="https://futaontop.com/images/fulls/1_141_prison copy_result.webp" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <meta name="twitter:title" content="Futa on Top & Futaheim - Adult Futa Visual Novels" />
+ <meta name="twitter:description" content="Out on Steam with free demo. Patreon builds. Free posts. 18+." />
+ <meta name="twitter:image" content="https://futaontop.com/images/fulls/1_141_prison copy_result.webp" />
+ <script type="application/ld+json">
+ {
+ "@context": "https://schema.org",
+ "@graph": [
+ {
+ "@type": "VideoGame",
+ "@id": "https://futaontop.com/#futa-on-top",
+ "name": "Futa on Top",
+ "url": "https://store.steampowered.com/app/4272570/Futa_on_Top/",
+ "description": "A dystopian futa-dom visual novel. Free demo on Steam. 18+.",
+ "genre": ["Adult", "Visual Novel", "Erotic"],
+ "contentRating": "AO",
+ "inLanguage": "en",
+ "publisher": {"@id": "https://futaontop.com/#org"},
+ "sameAs": ["https://www.patreon.com/futaontop","https://store.steampowered.com/app/4272570/"]
+ },
+ {
+ "@type": "VideoGame",
+ "@id": "https://futaontop.com/#futaheim",
+ "name": "Futaheim",
+ "url": "https://store.steampowered.com/app/4594450/",
+ "description": "A vampire empress breeds a futa dynasty and topples the elven order. 18+ adult visual novel.",
+ "genre": ["Adult", "Visual Novel", "Erotic"],
+ "contentRating": "AO",
+ "inLanguage": "en",
+ "publisher": {"@id": "https://futaontop.com/#org"},
+ "sameAs": ["https://www.patreon.com/futaontop","https://store.steampowered.com/app/4594450/"]
+ },
+ {
+ "@type": "Organization",
+ "@id": "https://futaontop.com/#org",
+ "name": "Futa on Top",
+ "url": "https://futaontop.com/",
+ "sameAs": ["https://www.patreon.com/futaontop","https://store.steampowered.com/publisher/futaontop","https://discord.gg/9Rv6EdeFwS"]
+ },
+ {
+ "@type": "WebSite",
+ "@id": "https://futaontop.com/#website",
+ "url": "https://futaontop.com/",
+ "name": "Futa on Top",
+ "publisher": {"@id": "https://futaontop.com/#org"}
+ }
+ ]
+ }
+ </script>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <link rel="stylesheet" href="assets/css/main.css" />
+ <link rel="stylesheet" href="assets/css/fot.css" />
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;0,700;0,900;1,400&display=swap" onload="this.rel='stylesheet'">
+ <link rel="preload" as="style" href="assets/css/fontawesome-all.min.css" onload="this.rel='stylesheet'">
+ <noscript>
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;0,700;0,900;1,400&display=swap" />
+ <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+ <link rel="stylesheet" href="assets/css/noscript.css" />
+ </noscript>
+ <link rel="preload" as="image" href="images/capsule-futaheim.jpg" fetchpriority="high" />
+ <link rel="preload" as="image" href="images/capsule-futa-on-top.jpg" fetchpriority="high" />
+ <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
 	</head>
 	<body class="is-preload">
 
-		<!-- Age verification modal (shows on first visit) -->
-		<div id="age-modal" class="age-modal" role="dialog" aria-modal="true" aria-hidden="true">
-			<div class="age-modal__backdrop"></div>
-			<div class="age-modal__dialog">
-				<h2>Age Verification</h2>
-				<p>Please confirm that you are 18 years of age or older to enter this site.</p>
-				<div class="age-modal__actions">
-					<button id="age-accept" class="btn btn--green">Yes — I'm 18+</button>
-					<button id="age-decline" class="btn btn--white">No — Take me away</button>
-				</div>
-			</div>
-		</div>
+ <!-- One-time age gate for first visit (localStorage) -->
+ <div id="age-modal" class="age-modal" role="dialog" aria-modal="true" aria-labelledby="age-title" aria-hidden="true">
+ <div class="age-modal__backdrop"></div>
+ <div class="age-modal__dialog">
+ <div class="age-modal__badge">18+ Adult Content</div>
+ <h2 id="age-title">Are you 18 or older?</h2>
+ <p>Explicit futa games and art. Confirm you are an adult to enter.</p>
+ <div class="age-modal__actions">
+ <button id="age-accept" class="btn btn--green" type="button">Yes - I'm 18+</button>
+ <button id="age-decline" class="btn btn--white" type="button">No - Leave</button>
+ </div>
+ </div>
+ </div>
 
-		<!-- Header -->
-			<header id="header">
-				<h1><a href="#intro">Futa on Top</a></h1>
-				<nav>
-					<ul>
-						<!-- <li><a href="#intro">Intro</a></li> -->
-						<li><a href="#one">Throxxa</a></li>
-						<li><a href="#two">Your Role</a></li>
-						<li><a href="#work">Previews</a></li>
-						<li><a href="https://futaontop.itch.io/futa-on-top" target="_blank" rel="noopener noreferrer">Demo</a></li>
-						<!-- <li><a href="#contact">Contact</a></li> -->
-						<li><a href="https://www.patreon.com/futaontop" class="icon brands fa-patreon" target="_blank" rel="noopener noreferrer"><span class="label">Patreon</span></a></li>
-						<li><a href="https://discord.gg/9Rv6EdeFwS" class="icon brands fa-discord" target="_blank" rel="noopener noreferrer"><span class="label">Discord</span></a></li>
-						<li><a href="https://store.steampowered.com/publisher/futaontop" class="icon brands fa-steam" target="_blank" rel="noopener noreferrer"><span class="label">Steam</span></a></li>
-						<!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-					</ul>
-				</nav>
-			</header>
+ <header id="header">
+ <h1><a href="#intro">Futa on <span>Top</span></a></h1>
+ <nav aria-label="Primary">
+ <ul>
+ <li><a href="#games" class="nav-hide-md">Games</a></li>
+ <li><a href="#throxxa" class="nav-hide-md nav-throxxa-only">Throxxa</a></li>
+ <li><a href="#free" class="nav-hide-md">Free</a></li>
+ <li><a href="#work" class="nav-hide-md">Art</a></li>
+ <li>
+ <a href="https://store.steampowered.com/publisher/futaontop" class="icon brands fa-steam is-cta-steam" target="_blank" rel="noopener noreferrer" title="Steam">
+ <span class="nav-text label">Steam</span>
+ </a>
+ </li>
+ <li>
+ <a href="https://www.patreon.com/futaontop" class="icon brands fa-patreon is-cta" target="_blank" rel="noopener noreferrer" title="Patreon">
+ <span class="nav-text label">Patreon</span>
+ </a>
+ </li>
+ </ul>
+ </nav>
+ </header>
 
-				<!-- Intro -->
-		<section id="intro" class="main style1 dark fullscreen" aria-label="Choose your game">
-			<div class="content intro-content">
+ <section id="intro" class="main style1 dark fullscreen" aria-label="Choose your game">
+ <div class="content intro-content">
+ <header class="intro-header">
+ <p class="fot-kicker" style="justify-content:center;">18+ futa visual novels</p>
+ <h2>Choose Your World</h2>
+ <p class="intro-sub">Futa Heim is on Patreon | Futa on Top is on Steam [Free Demo] | NSFW previews below</p>
+ </header>
 
-				<header class="intro-header">
-					<h2>Choose Your World</h2>
-				</header>
+ <div id="games" class="game-cards">
+ <article id="game-futaheim" class="game-card game-card--hot" aria-label="Futaheim">
+ <div class="game-capsule-wrap">
+ <span class="game-card__badge game-card__badge--early">On Patreon</span>
+ <img src="images/capsule-futaheim.jpg" alt="Futaheim capsule art" class="game-capsule" width="460" height="215" loading="eager" fetchpriority="high" />
+ </div>
+ <div class="game-card__body">
+ <h3 class="game-card__title">Futaheim</h3>
+ <p class="game-card__desc">🌏 A realm of divine futa queens 👑 where conquered femboys birth hung futa heirs on their knees 🦠💦</p>
+ <div class="game-card__actions">
+ <a href="https://www.patreon.com/futaontop/posts/futaheim-chapter-168518226" class="btn-play btn-play--patreon" target="_blank" rel="noopener noreferrer">Play on Patreon</a>
+ <div class="game-card__links">
+ <a href="https://www.patreon.com/futaontop/" class="btn-social btn-patreon" target="_blank" rel="noopener noreferrer" title="Patreon"><i class="icon brands fa-patreon" aria-hidden="true"></i><span> Patreon</span></a>
+ <a href="https://store.steampowered.com/app/4594450/Futa_Heim/" class="btn-social btn-steam" target="_blank" rel="noopener noreferrer" title="Steam"><i class="icon brands fa-steam" aria-hidden="true"></i><span> Steam</span></a>
+ <a href="https://subscribestar.adult/futaontop" class="btn-social btn-subscribestar" target="_blank" rel="noopener noreferrer" title="SubscribeStar"><i class="icon solid fa-star" aria-hidden="true"></i><span> Substar</span></a>
+ </div>
+ </div>
+ </div>
+ </article>
 
-				<div class="game-cards">
-
-					<!-- Futaheim -->
-					<div class="game-card" aria-label="Futaheim — Adult Visual Novel">
-						<div class="game-capsule-wrap">
-							<img src="images/capsule-futaheim.jpg" alt="Futaheim — Vampire futa visual novel" class="game-capsule" width="460" height="215" loading="eager" fetchpriority="high" />
-						</div>
-						<div class="game-card__body">
-							<h3 class="game-card__title">Futa Heim</h3>
-							<p class="game-card__desc">🌏 A realm of divine futa queens 👑 where conquered femboys birth hung futa heirs on their knees 🦠💦</p>
-							<div class="game-card__actions">
-								<a href="https://www.patreon.com/futaontop/posts/futaheim-chapter-168518226" class="btn-play" target="_blank" rel="noopener noreferrer">&#9654;&nbsp; Play Now</a>
-								<div class="game-card__links">
-									<a href="https://www.patreon.com/futaontop" class="btn-social btn-patreon" target="_blank" rel="noopener noreferrer" title="Support Futaheim on Patreon"><i class="icon brands fa-patreon"></i><span> Patreon</span></a>
-									<a href="https://subscribestar.adult/futaontop" class="btn-social btn-subscribestar" target="_blank" rel="noopener noreferrer" title="Support Futaheim on SubscribeStar"><i class="icon solid fa-star"></i><span> SubscribeStar</span></a>
-									<a href="https://store.steampowered.com/app/4594450/Futa_Heim/" class="btn-social btn-steam" target="_blank" rel="noopener noreferrer" title="Futaheim on Steam"><i class="icon brands fa-steam"></i><span> Steam</span></a>
+ <article id="game-futa-on-top" class="game-card" aria-label="Futa on Top">
+ <div class="game-capsule-wrap">
+ <span class="game-card__badge game-card__badge--free">Out on Steam | Free Demo</span>
+ <img src="images/capsule-futa-on-top.jpg" alt="Futa on Top capsule art" class="game-capsule" width="460" height="215" loading="eager" fetchpriority="high" />
+ </div>
+ <div class="game-card__body">
+ <h3 class="game-card__title">Futa on Top</h3>
+ <p class="game-card__desc">💕 A dystopian futa-dom visual novel ⚔️ where broken, desperate males worship futa code on their knees 🧬🔥</p>
+ <div class="game-card__actions">
+ <a href="https://store.steampowered.com/app/4272570/Futa_on_Top/" class="btn-play" target="_blank" rel="noopener noreferrer">Play Free Demo</a>
+ <div class="game-card__links">
+									<a href="https://store.steampowered.com/app/4272570/Futa_on_Top/" class="btn-social btn-steam" target="_blank" rel="noopener noreferrer" title="Buy on Steam"><i class="icon brands fa-steam" aria-hidden="true"></i><span> Buy on Steam</span></a>
+									<a href="https://futaontop.itch.io/" class="btn-social btn-itch" target="_blank" rel="noopener noreferrer" title="itch.io"><i class="icon brands fa-itch-io" aria-hidden="true"></i><span> itch.io</span></a>
+									<a href="https://discord.gg/9Rv6EdeFwS" class="btn-social btn-discord" target="_blank" rel="noopener noreferrer" title="Discord"><i class="icon brands fa-discord" aria-hidden="true"></i><span> Discord</span></a>
 								</div>
+ </div>
+ </div>
+ </article>
+ </div>
+
+ <footer class="intro-footer">
+ <a href="#throxxa" class="button style2 down down-desktop" aria-label="Scroll to Vowbound">More</a>
+ <a href="#work" class="button style2 down down-mobile" aria-label="Scroll to art previews">More</a>
+ </footer>
+ </div>
+ </section>
+
+ <!-- Vowbound / Throxxa - responsive two-page profile -->
+		<section id="throxxa" class="throxxa-section" aria-label="Mistress Throxxa - Vowbound mating registry">
+			<div class="throxxa-frame">
+				<div class="vowbound" role="document">
+					<header class="vb-top">
+						<div class="vb-brand">
+							<div class="vb-logo">Vow<span>bound</span></div>
+							<div class="vb-sub">Eternal Mating & Marriage Registry</div>
+						</div>
+						<div class="vb-top-actions">
+							<span class="vb-live">Hunting - No Refusal</span>
+							<div class="vb-tabs" role="tablist" aria-label="Profile pages">
+								<button type="button" role="tab" class="is-on" data-vb-page="1" aria-selected="true">01 The Bridecock</button>
+								<button type="button" role="tab" data-vb-page="2" aria-selected="false">02 Mating Protocol</button>
 							</div>
 						</div>
-						<!-- <div class="steam-wishlist-wrap">
-							<iframe src="https://store.steampowered.com/widget/4594450/" frameborder="0" class="steam-wishlist-frame" title="Futaheim on Steam" loading="lazy"></iframe>
-						</div> -->
+					</header>
+
+					<div class="vb-body">
+						<!-- PAGE 1: Bridecock -->
+						<article class="vb-sheet vb-sheet--bride is-on" id="vb-page-1" data-vb-panel="1">
+							<figure class="vb-shot vb-shot--contain">
+								<img src="images/throxxa/throxxa-01.webp" alt="Mistress Throxxa on the marriage bed in bridal lace" width="1200" height="1588" loading="lazy" />
+								<figcaption>Veiled | Hard | Offering Nothing but Orders</figcaption>
+							</figure>
+
+							<div class="vb-panel">
+								<header class="vb-id">
+									<h2 class="vb-title">Mistress <em>Throxxa</em></h2>
+									<p class="vb-tagline">Hot single futa in your area. Wedding-night predator. Your "no" is noise under her hips.</p>
+									<ul class="vb-chips">
+										<li class="hot">The Wombmauler</li>
+										<li class="hot">Futa Domme</li>
+										<li class="hot">Verified Cock</li>
+										<li>Open to Eternal Bond</li>
+										<li class="hot">Breeder</li>
+										<li>Masochist Top</li>
+										<li class="hot">No Safeword</li>
+									</ul>
+								<p class="vb-reader-hint">Scroll the details panel to read the full profile ↓</p>
+</header>
+
+								<div class="vb-main vb-main--bride" tabindex="0" role="region" aria-label="Profile details">
+<p class="vb-bio"><strong>Mistress Throxxa</strong> doesn’t date — she <strong>claims breeding stock</strong>. Six-foot five of elf muscle under a white veil: freckled cheeks, gold-and-green prey-lock stare, balls heavy enough to make the mattress dip. That <strong>11 inch flared cock</strong> is already drooling. She dresses like forever-wife so she can split you open on the wedding night and keep thrusting until your hole screams <strong>Bull-Bride</strong>. Vampire-mutated shapeshifter — she <strong>swells inside you mid-thrust when you struggle</strong>, thicker still if your whimpering amuses her. She wants a throat, a cunt, an ass, and a last name — not necessarily in that order.</p>
+<section class="vb-card">
+<h3 class="vb-h">Body Registry</h3>
+<dl class="vb-dl vb-dl--registry">
+<div><dt>Race</dt><dd>Elf · Vampire strain · <b>+34%</b> thrust power when blood is in the air</dd></div>
+<div><dt>Anomaly</dt><dd>Shapeshifter · Phallic girth scalable <b>1.0× → 1.45×</b></dd></div>
+<div><dt>Height</dt><dd><b>6′5″</b> / <b>195.6 cm</b></dd></div>
+<div><dt>Build</dt><dd>Mesomorph-dominant · Visible six-pack · Can bench-press you mid-mount</dd></div>
+<div><dt>Mass Class</dt><dd>Combat-dense · Estimated <b>≈ 92–98 kg</b> lean-heavy</dd></div>
+<div><dt>Eyes</dt><dd>Heterochromia · OD gold / OS green · Prey-lock trained</dd></div>
+<div><dt>Hair</dt><dd>Long Platinum waves · Usable as a fist-leash</dd></div>
+<div><dt>Skin</dt><dd>Fair, freckled · Marks easily · Bruise retention</dd></div>
+<div><dt>Bust</dt><dd>Massive · Nipple erectile response &lt; <b>2 s</b> to pain/pleasure stimulus</dd></div>
+<div><dt>Look</dt><dd>Silver bridal lace · Collar · Tiara + veil = psychological ownership cue</dd></div>
+</dl>
+</section>
+<section class="vb-card">
+<h3 class="vb-h">Cock Metrics</h3>
+<dl class="vb-dl">
+<div><dt>Erect Length</dt><dd><b>> 11.0 in</b> / <b>> 27.9 cm</b> bone-press · Tip-to-pubic measured hard</dd></div>
+<div><dt>Midshaft Girth</dt><dd>Circumference <b>≈ 6.4–6.8 in</b> · diameter <b>≈ 2.0–2.2 in</b> · “Jaw failure” threshold for untrained mouths</dd></div>
+<div><dt>Head / Flare</dt><dd>Blunt crown · High coronal ridge · Pull-out resistance coefficient rated <b>High</b> on swollen sphincter</dd></div>
+<div><dt>Testicular Load</dt><dd>Low-hanging · Overfull · Slap mass sufficient to redden thighs at <b>≥ 1.2 Hz</b> thrust cadence</dd></div>
+<div><dt>Ejaculate Volume</dt><dd>Primary load <b>28–40 mL</b> · Stacked orgasms can total <b>> 90 mL</b> / session · viscosity high (womb-coat / colon-paint)</dd></div>
+<div><dt>Shot Count</dt><dd><b>4–7</b> full ejaculations before refractory collapse · Vampire mutation shortens downtime to <b>≈ 3–6 min</b></dd></div>
+<div><dt>Penetration Force</dt><dd>Initial entry pressure tuned for tight holes · Once past the ring she <strong>does not ask</strong>, she seats to the hilt and holds</dd></div>
+<div><dt>Shapeshift Δ</dt><dd>Knot-analogue swell <b>+15–45%</b> base girth for lock-in mating · Non-reversible with safeword</dd></div>
+<div><dt>Breeding Index</dt><dd>Fertility flag: <b>ACTIVE</b> · creampie depth priority: cervical / prostate battering until overflow leaks past the shaft</dd></div>
+</dl>
+</section>
+</div>
+<footer class="vb-actions">
+									<a class="vb-btn vb-btn--patreon" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Patreon</a>
+									<a class="vb-btn vb-btn--steam" href="https://store.steampowered.com/app/4594450/Futa_Heim/" target="_blank" rel="noopener noreferrer">Futaheim</a>
+									<button type="button" class="vb-btn vb-btn--gold" data-vb-page="2">Mating Protocol -></button>
+								</footer>
+							</div>
+						</article>
+
+						<!-- PAGE 2: Protocol -->
+						<article class="vb-sheet vb-sheet--proto" id="vb-page-2" data-vb-panel="2" hidden>
+							<figure class="vb-shot vb-shot--contain">
+								<img src="images/throxxa/throxxa-02.webp" alt="Mistress Throxxa stroking her cock" width="1200" height="1588" loading="lazy" />
+								<figcaption>The ring is optional; the collar isn't.</figcaption>
+							</figure>
+
+							<div class="vb-panel">
+								<header class="vb-id">
+									<h2 class="vb-title">Mating <em>Protocol</em></h2>
+									<p class="vb-tagline">She does not negotiate. She seats cock and empties balls.</p>
+									<ul class="vb-chips">
+										<li class="hot">Non-Con</li>
+										<li class="hot">Orgasm Control</li>
+										<li>Pain / Power</li>
+										<li class="hot">Anal</li>
+										<li class="hot">Creampie Seal</li>
+										<li>VowPlay</li>
+									</ul>
+								<p class="vb-reader-hint">Scroll the details panel to read the full profile ↓</p>
+</header>
+
+								<div class="vb-main vb-main--proto" tabindex="0" role="region" aria-label="Protocol details">
+<div class="vb-pair">
+<section class="vb-card vb-card--dom">
+<h3 class="vb-h">Dominance Graph</h3>
+<div class="vb-meters"><div class="vb-meter"><div class="vb-meter__row"><span>Breeding compulsion</span><b>1.00</b></div><div class="vb-meter__bar"><i style="width:100%"></i></div></div>
+<div class="vb-meter"><div class="vb-meter__row"><span>Top / penetrative control</span><b>0.98</b></div><div class="vb-meter__bar"><i style="width:98%"></i></div></div>
+<div class="vb-meter"><div class="vb-meter__row"><span>Marriage permanence intent</span><b>0.94</b></div><div class="vb-meter__bar"><i style="width:94%"></i></div></div>
+<div class="vb-meter"><div class="vb-meter__row"><span>Psychological ownership drive</span><b>0.88</b></div><div class="vb-meter__bar"><i style="width:88%"></i></div></div>
+<div class="vb-meter"><div class="vb-meter__row"><span>Aftercare (earned, not free)</span><b>0.58</b></div><div class="vb-meter__bar"><i style="width:58%"></i></div></div></div>
+</section>
+<section class="vb-card">
+<h3 class="vb-h">Kink Coefficients</h3>
+<p class="vb-card-note">(0–1 intensity · self-scored)</p><ul class="vb-kinklist"><li><span>Breeding / creampie lock</span><b>1.00</b></li>
+<li><span>Anal — no condoms</span><b>0.96</b></li>
+<li><span>Struggle-fuck</span><b>0.94</b></li>
+<li><span>Facefucking / throat claim</span><b>0.91</b></li>
+<li><span>Sizeplay via shapeshift</span><b>0.89</b></li>
+<li><span>Partner chastity</span><b>0.87</b></li>
+<!-- <li><span>Collar + vow dual ritual</span><b>0.80</b></li> -->
+<!-- <li><span>Tit clamp / bruise worship</span><b>0.76</b></li>
+<li><span>Blood-scent arousal (vampire)</span><b>0.69</b></li> -->
+<li><span>Service bottoming (rare)</span><b>0.12</b></li></ul>
+</section>
+</div>
+<section class="vb-card">
+<h3 class="vb-h">Session Mathematics</h3>
+<dl class="vb-dl"><div><dt>Mount Order</dt><dd>Mouth warm-up <b>3–8 min</b> → primary hole seating → grind lock <b>≥ 20 strokes</b> deep before first unload</dd></div>
+<div><dt>Anal Target</dt><dd>First-session stretch goal: full midshaft acceptance · failure mode = held open on her tongue until compliant</dd></div>
+<div><dt>Thrust Cadence</dt><dd>Idle grind <b>0.6–0.9 Hz</b> · punishing peak <b>1.4–1.8 Hz</b> · hip-check against cervix/prostate every 4th stroke</dd></div>
+<div><dt>Load Placement</dt><dd>Priority queue: <b>(1)</b> womb/ass deepest point · <b>(2)</b> throat mark · <b>(3)</b> tits/veil desecration for photos</dd></div>
+<div><dt>Leak Rule</dt><dd>Overflow down the thighs is proof of work · wiping without permission = insolence</dd></div>
+<div><dt>Marriage Clause</dt><dd>Applicants may be bound as spouse, seed-dump, or both · ring finger and asshole ranked equal contracts</dd></div></dl>
+</section>
+<div class="vb-pair">
+<section class="vb-card">
+<h3 class="vb-h">Applicant Requirements</h3>
+<ul class="vb-rules"><li><strong>Breeding compliance</strong> — creampies stay put. Hands off. Clench and thank her.</li>
+                <li><strong>Verbal surrender</strong> — <em>Bull-Mistress</em>, <em>She-King</em>, <em>Don't stop</em>. Gagging counts as punctuation. Tears are lube.</li> 
+                
+                <li><strong>Body for furniture</strong> — 6′5″ of muscle will pin you, fold you, bench you. No safeword. No stop. Struggle triggers swell.</li></ul>
+</section>
+<section class="vb-card">
+<h3 class="vb-h">Her Words · Unedited</h3>
+<blockquote class="vb-quote">I wore the veil so you’d understand the contract: tonight you marry my cock. Scratch me. Bite me. Make it hurt while I breed you — I want my orgasm filthy and bright with pain. Then you hold still with my cum packing your hole like a wedding seal. Call me Mistress when you choke. Call me your wife when you can’t walk. If you’re still empty by morning, you failed the interview.</blockquote>
+</section>
+</div>
+</div>
+<footer class="vb-actions">
+									<button type="button" class="vb-btn vb-btn--ghost" data-vb-page="1"><- The Bridecock</button>
+									<a class="vb-btn vb-btn--discord" href="https://discord.gg/9Rv6EdeFwS" target="_blank" rel="noopener noreferrer">Discord</a>
+									<a class="vb-btn vb-btn--patreon" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Patreon</a>
+								</footer>
+							</div>
+						</article>
 					</div>
 
-				<!-- Futa on Top -->
-				<div class="game-card" aria-label="Futa on Top — Adult Visual Novel">
-					<div class="game-capsule-wrap">
-						<img src="images/capsule-futa-on-top.jpg" alt="Futa on Top — Dystopian futa visual novel" class="game-capsule" width="460" height="215" loading="eager" fetchpriority="high" />
-					</div>
-					<div class="game-card__body">
-						<h3 class="game-card__title">Futa on Top</h3>
-						<p class="game-card__desc">💕 A dystopian futa-dom visual novel ⚔️ where broken, desperate males worship futa code on their knees 🧬🔥</p>
-						<div class="game-card__actions">
-							<!-- # [https://futaontop.itch.io/futa-on-top-demo](https://futaontop.itch.io/futa-on-top-demo) https://www.oppaiman.com/app/Futa_Heim__Chapter_1_2/-->
-							<a href="https://store.steampowered.com/app/4272570/Futa_on_Top/" class="btn-play" target="_blank" rel="noopener noreferrer">&#9654;&nbsp; Play on Steam [Free Demo]</a>
-							<div class="game-card__links">
-								<a href="https://futaontop.itch.io/" class="btn-social btn-itch" target="_blank" rel="noopener noreferrer" title="Futa on Top on itch.io"><i class="icon brands fa-itch-io"></i><span> itch.io</span></a>
-								<a href="https://discord.gg/9Rv6EdeFwS" class="btn-social btn-discord" target="_blank" rel="noopener noreferrer" title="Join the Futa on Top Discord"><i class="icon brands fa-discord"></i><span> Discord</span></a>
-								<a href="https://store.steampowered.com/app/4272570/Futa_on_Top/" class="btn-social btn-steam" target="_blank" rel="noopener noreferrer" title="Futa on Top on Steam"><i class="icon brands fa-steam"></i><span> Steam</span></a>
-							</div>
-						</div>
-					</div>
-					<!-- <div class="steam-wishlist-wrap">
-						<iframe src="https://store.steampowered.com/widget/4272570/" frameborder="0" class="steam-wishlist-frame" title="Futa on Top on Steam" loading="lazy"></iframe>
-					</div> -->
+					<footer class="vb-foot">
+						<span class="vb-foot__page" id="vb-page-index">PAGE 01 / 02</span>
+						<span>#VX-THROXXA-69 | Mistress Throxxa | From Futaheim</span>
+						<span>Vowbound - "Til death, and then some."</span>
+					</footer>
 				</div>
-
-				</div><!-- /.game-cards -->
-
-				<footer class="intro-footer">
-					<a href="#one" class="button style2 down">More</a>
-				</footer>
-
 			</div>
 		</section>
 
-		<!-- One -->
-			<section id="one" class="main style2 right dark fullscreen" aria-label="Dromazeth: The Wombmauler — Futaheim story">
-				<div class="content box style2">
-					<header>
-						<h2>Dromazeth: The Wombmauler</h2>
-					</header>
-					<p>Buried in ice for a thousand years, an elder vampiress gets dug up by the twisted Futhorix Cabal. They name her Dromazeth Throxxa—aka Dromazeth: The Wombmauler. She is the prophesied vampire cuntlord of Futaheim, a cock-drenched nightmare who breeds femboys with her twin shafts, stuffing them full of hot, whining loads until her cum bubbles with broodcow titmilk and squeezes out thick, twitching mana-eggs from ruined boycunts.</p>
-					<p>While gut-bulged femboys moan through messy births, she breaks every royal elf bitch down into a leaking fuckcow, bred on her cock to birth hung futa spawn who’ll strip them of power, chain them by the throat, and bow only to the cock that birthed them.</p>
-				</div>
-				<a href="#two" class="button style2 down anchored">Next</a>
-			</section>
+ <section id="work" class="main style3 primary" aria-label="Latest art animations">
+ <div class="content">
+ <header class="section-head">
+ <p class="fot-kicker" style="justify-content:center;">Art</p>
+ <h2>Latest Futaheim Animations</h2>
+ <!-- <p>Fresh motion previews from Veluxa. Tap a card to load the player.</p> -->
+ </header>
 
-		<!-- Two -->
-			<section id="two" class="main style2 left dark fullscreen" aria-label="Futa on Top gameplay description">
-				<div class="content box style2">
-					<header>
-						<h2>What Kind of Fucked Up Game Is This?</h2>
-					</header>
-					<p>
-You're playing a futa double agent infiltrating an elite college that trains hunters to capture and experiment on dickgirls like you. Build your secret harem, breed an army, collect magic eggs, and burn down the elven empire from the inside.
-</p>
-				</div>
-				<a href="#work" class="button style2 down anchored">Next</a>
-			</section>
+ <div id="animations-grid" class="animations-grid" aria-live="polite"></div>
+ <p id="animations-note" class="animations-note"></p>
 
-		<!-- Work -->
-			<section id="work" class="main style3 primary" aria-label="Game art previews">
-				<div class="content">
-					<header>
-						<h2>What The Fuck Is A Futa?</h2>
-						<p>Futas are shapeshifters that look like total babes—curvy tits, dripping pussies—but their assholes are the secret switch. You don't even need to penetrate—just lick or toy with the rim, and boom: massive throbbing cocks sprout when they get horny. </p>
-					</header>
+ <div class="gallery-cta">
+ <a class="fot-btn fot-btn--gold" href="https://store.steampowered.com/app/4594450/Futa_Heim/" target="_blank" rel="noopener noreferrer">Futaheim</a>
+ <a class="fot-btn fot-btn--patreon" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Patreon</a>
+ <a class="fot-btn fot-btn--steam" href="https://store.steampowered.com/publisher/futaontop" target="_blank" rel="noopener noreferrer">Steam</a>
+ <a class="fot-btn fot-btn--ghost" href="#throxxa">Throxxa</a>
+ </div>
+ </div>
+ </section>
 
-					<!-- Gallery  -->
-						<div class="gallery">
-							<article class="from-left">
-							<a href="images/fulls/1_265_prison_result.webp" rel="nofollow" class="image fit"><img src="images/thumbs/1_265_prison_result_thumb.webp" title="A Kiss For My Valentine" alt="Preview artwork — A Kiss For My Valentine (1-265)" /></a>
-							</article>
-							<article class="from-right">
-							<a href="images/fulls/1_245_prison_result.webp" rel="nofollow" class="image fit"><img src="images/thumbs/1_245_prison_result_thumb.webp" title="Caught from below. Owned from above." alt="Preview artwork — Caught from below. Owned from above. (1-245)" /></a>
-							</article>
-							<article class="from-left">
-							<a href="images/fulls/1_87_prison_result.webp" rel="nofollow" class="image fit"><img src="images/thumbs/1_87_prison_result_thumb.webp" title="Doll Executioner Protocol" alt="Preview artwork — Doll Executioner Protocol (1-87)" /></a>
-							</article>
-							<article class="from-right">
-							<a href="images/fulls/1_250_prison_result.webp" rel="nofollow" class="image fit"><img src="images/thumbs/1_250_prison_result_thumb.webp" title="Red nails, soft soles, ruthless queen." alt="Preview artwork — Red nails, soft soles, ruthless queen. (1-250)" /></a>
-							</article>
-							<article class="from-left">
-							<a href="images/fulls/1_13_wedding_1_result.webp" rel="nofollow" class="image fit"><img src="images/thumbs/1_13_wedding_1_result_thumb.webp" title="Sun To My Moon" alt="Preview artwork — Sun To My Moon (1-13)" /></a>
-							</article>
-							<article class="from-right">
-							<a href="images/fulls/1_214_prison_result.webp" rel="nofollow" class="image fit"><img src="images/thumbs/1_214_prison_result_thumb.webp" title="A bride… with a surprise." alt="Preview artwork — A bride… with a surprise. (1-214)" /></a>
-							</article>
-						</div>
+ <hr class="fot-divider" />
 
-				</div>
-			</section>
+ <section id="free" class="fot-section fot-section--elev fot-section--tight" aria-label="Free Patreon posts">
+ <div class="fot-wrap">
+ <header class="section-head">
+ <p class="fot-kicker" style="justify-content:center;">Public on Patreon</p>
+ <h2 class="fot-title">Free Posts</h2>
+ <p class="fot-lead">No pledge needed. Thumbnail + blurb - tap Read more for the full post.</p>
+ </header>
 
-		<!-- Contact
-			<section id="contact" class="main style3 secondary">
-				<div class="content">
-					<header>
-						<h2>Say Hello.</h2>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.</p>
-					</header>
-					<div class="box">
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half"><input type="text" name="name" placeholder="Name" /></div>
-								<div class="field half"><input type="email" name="email" placeholder="Email" /></div>
-								<div class="field"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
-							</div>
-							<ul class="actions special">
-								<li><input type="submit" value="Send Message" /></li>
-							</ul>
-						</form>
-					</div>
-				</div>
-			</section> <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>-->
+ <div id="free-posts-grid" class="posts-grid" aria-live="polite"></div>
+ <p id="free-posts-note" class="posts-note"></p>
 
-		<!-- Footer -->
-			<footer id="footer">
+ <div class="posts-actions btn-row btn-row--center">
+ <a class="fot-btn fot-btn--patreon fot-btn--lg" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">All on Patreon</a>
+ <a class="fot-btn fot-btn--ghost" href="#support">Why Patreon?</a>
+ </div>
+ </div>
+ </section>
 
-				<!-- Icons -->
-					<ul class="icons">
-						<li><a href="https://www.patreon.com/futaontop" class="icon brands fa-patreon" target="_blank" rel="noopener noreferrer"><span class="label">Patreon</span></a></li>
-						<li><a href="https://discord.gg/9Rv6EdeFwS" class="icon brands fa-discord" target="_blank" rel="noopener noreferrer"><span class="label">Discord</span></a></li>
-						<li><a href="https://store.steampowered.com/publisher/futaontop" class="icon brands fa-steam" target="_blank" rel="noopener noreferrer"><span class="label">Steam</span></a></li>
-						<!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a></li> -->
-					</ul>
+ <section id="support" class="fot-section fot-section--patreon fot-section--tight" aria-label="Support">
+ <div class="fot-wrap">
+ <div class="patreon-grid">
+ <div class="patreon-copy">
+ <p class="fot-kicker">Support</p>
+ <h2>Patreon keeps the filth coming</h2>
+ <p>Steam is where you can play the demo and buy Futa on Top. Patreon is where Futaheim chapters, extras, and uncensored cuts land first.</p>
+ <ul class="benefit-list">
+ <li>Latest chapter builds & downloads</li>
+ <li>Uncensored scenes and extras</li>
+ <li>WIP art, polls, NSFW animations</li>
+ </ul>
+ <div class="btn-row">
+ <a class="fot-btn fot-btn--patreon fot-btn--lg" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Join Patreon</a>
+ <a class="fot-btn fot-btn--subscribestar" href="https://subscribestar.adult/futaontop" target="_blank" rel="noopener noreferrer">SubscribeStar</a>
+ <a class="fot-btn fot-btn--discord" href="https://discord.gg/9Rv6EdeFwS" target="_blank" rel="noopener noreferrer">Discord</a>
+ </div>
+ </div>
+ <div class="patreon-card">
+ <p class="price-hint">Quick path</p>
+ <h3>Demo -> Steam -> Patreon</h3>
+ <p>Try the free demo. Grab Futa on Top on Steam. Support on Patreon for Futaheim and extras.</p>
+ <a class="fot-btn fot-btn--play fot-btn--block fot-btn--lg" href="https://store.steampowered.com/app/4272570/Futa_on_Top/" target="_blank" rel="noopener noreferrer">Free Demo on Steam</a>
+ <a class="fot-btn fot-btn--steam fot-btn--block" href="https://store.steampowered.com/app/4272570/Futa_on_Top/" target="_blank" rel="noopener noreferrer">Buy on Steam</a>
+ <a class="fot-btn fot-btn--patreon fot-btn--block" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Open Patreon</a>
+ </div>
+ </div>
+ </div>
+ </section>
 
-				<!-- Menu -->
-					<ul class="menu">
-						<li>&copy; Futa on Top</li>
-					</ul>
+ <footer id="footer">
+ <div class="footer-grid">
+ <div class="footer-brand">
+ <h3>Futa on Top</h3>
+ <p>Adult futa VNs. 18+ only. Steam | Patreon | Free public posts.</p>
+ </div>
+ <div class="footer-col">
+ <h4>Games</h4>
+ <ul>
+ <li><a href="#game-futaheim">Futaheim</a></li>
+ <li><a href="#game-futa-on-top">Futa on Top</a></li>
+ </ul>
+ </div>
+ <div class="footer-col">
+ <h4>Support</h4>
+ <ul>
+ <li><a href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Patreon</a></li>
+ <li><a href="https://subscribestar.adult/futaontop" target="_blank" rel="noopener noreferrer">SubscribeStar</a></li>
+ <li><a href="https://discord.gg/9Rv6EdeFwS" target="_blank" rel="noopener noreferrer">Discord</a></li>
+ <li><a href="#free">Free posts</a></li>
+ </ul>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <ul class="icons">
+ <li><a href="https://www.patreon.com/futaontop" class="icon brands fa-patreon" target="_blank" rel="noopener noreferrer"><span class="label">Patreon</span></a></li>
+ <li><a href="https://discord.gg/9Rv6EdeFwS" class="icon brands fa-discord" target="_blank" rel="noopener noreferrer"><span class="label">Discord</span></a></li>
+ <li><a href="https://store.steampowered.com/publisher/futaontop" class="icon brands fa-steam" target="_blank" rel="noopener noreferrer"><span class="label">Steam</span></a></li>
+ </ul>
+ <div class="footer-note">© Futa on Top | 18+ | All characters are adults</div>
+ </div>
+ </footer>
 
-			</footer>
+ <nav class="conv-bar" aria-label="Quick links">
+ <a class="patreon" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer"><i class="icon brands fa-patreon" aria-hidden="true"></i> Patreon</a>
+ <a class="steam" href="https://store.steampowered.com/publisher/futaontop" target="_blank" rel="noopener noreferrer"><i class="icon brands fa-steam" aria-hidden="true"></i> Steam</a>
+ </nav>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js" defer></script>
-
+ <script src="assets/js/jquery.min.js"></script>
+ <script src="assets/js/jquery.poptrox.min.js"></script>
+ <script src="assets/js/jquery.scrolly.min.js"></script>
+ <script src="assets/js/jquery.scrollex.min.js"></script>
+ <script src="assets/js/browser.min.js"></script>
+ <script src="assets/js/breakpoints.min.js"></script>
+ <script src="assets/js/util.js"></script>
+ <script src="assets/js/main.js" defer></script>
+ <script src="assets/js/fot.js" defer></script>
 	</body>
 </html>

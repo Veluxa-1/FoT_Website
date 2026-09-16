@@ -7,262 +7,264 @@
 (function($) {
 
 	var	$window = $(window),
-		$body = $('body'),
-		$header = $('#header'),
-		$all = $body.add($header);
+ $body = $('body'),
+ $header = $('#header'),
+ $all = $body.add($header);
 
 	// Breakpoints.
-		breakpoints({
-			xxlarge: [ '1681px',  '1920px' ],
-			xlarge:  [ '1281px',  '1680px' ],
-			large:   [ '1001px',  '1280px' ],
-			medium:  [ '737px',   '1000px' ],
-			small:   [ '481px',   '736px'  ],
-			xsmall:  [ null,      '480px'  ]
-		});
+ breakpoints({
+ xxlarge: [ '1681px', '1920px' ],
+ xlarge: [ '1281px', '1680px' ],
+ large: [ '1001px', '1280px' ],
+ medium: [ '737px', '1000px' ],
+ small: [ '481px', '736px' ],
+ xsmall: [ null, '480px' ]
+ });
 
 	// Play initial animations on page load.
-		$window.on('load', function() {
-			setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+ $window.on('load', function() {
+ setTimeout(function() {
+ $body.removeClass('is-preload');
+ }, 100);
+ });
 
 	// Touch mode.
-		if (browser.mobile)
-			$body.addClass('is-touch');
-		else {
+ if (browser.mobile)
+ $body.addClass('is-touch');
+ else {
 
-			breakpoints.on('<=small', function() {
-				$body.addClass('is-touch');
-			});
+ breakpoints.on('<=small', function() {
+ $body.addClass('is-touch');
+ });
 
-			breakpoints.on('>small', function() {
-				$body.removeClass('is-touch');
-			});
+ breakpoints.on('>small', function() {
+ $body.removeClass('is-touch');
+ });
 
-		}
+ }
 
 	// Fix: IE flexbox fix.
-		if (browser.name == 'ie') {
+ if (browser.name == 'ie') {
 
-			var $main = $('.main.fullscreen'),
-				IEResizeTimeout;
+ var $main = $('.main.fullscreen'),
+ IEResizeTimeout;
 
-			$window
-				.on('resize.ie-flexbox-fix', function() {
+ $window
+.on('resize.ie-flexbox-fix', function() {
 
-					clearTimeout(IEResizeTimeout);
+ clearTimeout(IEResizeTimeout);
 
-					IEResizeTimeout = setTimeout(function() {
+ IEResizeTimeout = setTimeout(function() {
 
-						var wh = $window.height();
+ var wh = $window.height();
 
-						$main.each(function() {
+ $main.each(function() {
 
-							var $this = $(this);
+ var $this = $(this);
 
-							$this.css('height', '');
+ $this.css('height', '');
 
-							if ($this.height() <= wh)
-								$this.css('height', (wh - 50) + 'px');
+ if ($this.height() <= wh)
+ $this.css('height', (wh - 50) + 'px');
 
-						});
+ });
 
-					});
+ });
 
-				})
-				.triggerHandler('resize.ie-flexbox-fix');
+ })
+.triggerHandler('resize.ie-flexbox-fix');
 
-		}
+ }
 
 	// Gallery.
-		$window.on('load', function() {
+ $window.on('load', function() {
 
-			var $gallery = $('.gallery');
+ var $gallery = $('.gallery');
 
-			$gallery.poptrox({
-				baseZIndex: 10001,
-				useBodyOverflow: false,
-				usePopupEasyClose: false,
-				overlayColor: '#1f2328',
-				overlayOpacity: 0.65,
-				usePopupDefaultStyling: false,
-				usePopupCaption: true,
-				popupLoaderText: '',
-				windowMargin: 50,
-				usePopupNav: true
-			});
+ $gallery.poptrox({
+ baseZIndex: 10001,
+ useBodyOverflow: false,
+ usePopupEasyClose: false,
+ overlayColor: '#1f2328',
+ overlayOpacity: 0.65,
+ usePopupDefaultStyling: false,
+ usePopupCaption: true,
+ popupLoaderText: '',
+ windowMargin: 50,
+ usePopupNav: true
+ });
 
-			// Hack: Adjust margins when 'small' activates.
-				breakpoints.on('>small', function() {
-					$gallery.each(function() {
-						$(this)[0]._poptrox.windowMargin = 50;
-					});
-				});
+ // Hack: Adjust margins when 'small' activates.
+ breakpoints.on('>small', function() {
+ $gallery.each(function() {
+ $(this)[0]._poptrox.windowMargin = 50;
+ });
+ });
 
-				breakpoints.on('<=small', function() {
-					$gallery.each(function() {
-						$(this)[0]._poptrox.windowMargin = 5;
-					});
-				});
+ breakpoints.on('<=small', function() {
+ $gallery.each(function() {
+ $(this)[0]._poptrox.windowMargin = 5;
+ });
+ });
 
-		});
+ });
 
 	// Section transitions.
-		if (browser.canUse('transition')) {
+ if (browser.canUse('transition')) {
 
-			var on = function() {
+ var on = function() {
 
-				// Galleries.
-					$('.gallery')
-						.scrollex({
-							top:		'30vh',
-							bottom:		'30vh',
-							delay:		50,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+ // Galleries.
+ $('.gallery')
+.scrollex({
+ top: '30vh',
+ bottom: '30vh',
+ delay: 50,
+ initialize:	function() { $(this).addClass('inactive'); },
+ terminate:	function() { $(this).removeClass('inactive'); },
+ enter: function() { $(this).removeClass('inactive'); },
+ leave: function() { $(this).addClass('inactive'); }
+ });
 
-				// Generic sections.
-					$('.main.style1')
-						.scrollex({
-							mode:		'middle',
-							delay:		100,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+ // Generic sections.
+ $('.main.style1')
+.scrollex({
+ mode: 'middle',
+ delay: 100,
+ initialize:	function() { $(this).addClass('inactive'); },
+ terminate:	function() { $(this).removeClass('inactive'); },
+ enter: function() { $(this).removeClass('inactive'); },
+ leave: function() { $(this).addClass('inactive'); }
+ });
 
-					$('.main.style2')
-						.scrollex({
-							mode:		'middle',
-							delay:		100,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+ $('.main.style2')
+.scrollex({
+ mode: 'middle',
+ delay: 100,
+ initialize:	function() { $(this).addClass('inactive'); },
+ terminate:	function() { $(this).removeClass('inactive'); },
+ enter: function() { $(this).removeClass('inactive'); },
+ leave: function() { $(this).addClass('inactive'); }
+ });
 
-				// Contact.
-					$('#contact')
-						.scrollex({
-							top:		'50%',
-							delay:		50,
-							initialize:	function() { $(this).addClass('inactive'); },
-							terminate:	function() { $(this).removeClass('inactive'); },
-							enter:		function() { $(this).removeClass('inactive'); },
-							leave:		function() { $(this).addClass('inactive'); }
-						});
+ // Contact.
+ $('#contact')
+.scrollex({
+ top: '50%',
+ delay: 50,
+ initialize:	function() { $(this).addClass('inactive'); },
+ terminate:	function() { $(this).removeClass('inactive'); },
+ enter: function() { $(this).removeClass('inactive'); },
+ leave: function() { $(this).addClass('inactive'); }
+ });
 
-			};
+ };
 
-			var off = function() {
+ var off = function() {
 
-				// Galleries.
-					$('.gallery')
-						.unscrollex();
+ // Galleries.
+ $('.gallery')
+.unscrollex();
 
-				// Generic sections.
-					$('.main.style1')
-						.unscrollex();
+ // Generic sections.
+ $('.main.style1')
+.unscrollex();
 
-					$('.main.style2')
-						.unscrollex();
+ $('.main.style2')
+.unscrollex();
 
-				// Contact.
-					$('#contact')
-						.unscrollex();
+ // Contact.
+ $('#contact')
+.unscrollex();
 
-			};
+ };
 
-			breakpoints.on('<=small', off);
-			breakpoints.on('>small', on);
+ breakpoints.on('<=small', off);
+ breakpoints.on('>small', on);
 
-		}
+ }
 
 	// Events.
-		var resizeTimeout, resizeScrollTimeout;
+ var resizeTimeout, resizeScrollTimeout;
 
-		$window
-			.on('resize', function() {
+ $window
+.on('resize', function() {
 
-				// Disable animations/transitions.
-					$body.addClass('is-resizing');
+ // Disable animations/transitions.
+ $body.addClass('is-resizing');
 
-				clearTimeout(resizeTimeout);
+ clearTimeout(resizeTimeout);
 
-				resizeTimeout = setTimeout(function() {
+ resizeTimeout = setTimeout(function() {
 
-					// Update scrolly links.
-						$('a[href^="#"]').scrolly({
-							speed: 1500,
-							offset: $header.outerHeight() - 1
-						});
+ // Update scrolly links.
+ $('a[href^="#"]').scrolly({
+ speed: 120,
+ offset: $header.outerHeight() - 1
+ });
 
-					// Re-enable animations/transitions.
-						setTimeout(function() {
-							$body.removeClass('is-resizing');
-							$window.trigger('scroll');
-						}, 0);
+ // Re-enable animations/transitions.
+ setTimeout(function() {
+ $body.removeClass('is-resizing');
+ $window.trigger('scroll');
+ }, 0);
 
-				}, 100);
+ }, 100);
 
-			})
-			.on('load', function() {
-				$window.trigger('resize');
-			});
+ })
+.on('load', function() {
+ $window.trigger('resize');
+ });
 
 })(jQuery);
 
 /* Age verification: modal control + persistence */
 (function() {
 	function showAgeModal() {
-		var $modal = document.getElementById('age-modal');
-		if (!$modal) return;
-		$modal.setAttribute('aria-hidden','false');
-		document.body.classList.add('age-locked');
+ var $modal = document.getElementById('age-modal');
+ if (!$modal) return;
+ $modal.setAttribute('aria-hidden','false');
+ document.body.classList.add('age-locked');
 	}
 
 	function hideAgeModal() {
-		var $modal = document.getElementById('age-modal');
-		if (!$modal) return;
-		$modal.setAttribute('aria-hidden','true');
-		document.body.classList.remove('age-locked');
+ var $modal = document.getElementById('age-modal');
+ if (!$modal) return;
+ $modal.setAttribute('aria-hidden','true');
+ document.body.classList.remove('age-locked');
 	}
 
 	document.addEventListener('DOMContentLoaded', function() {
-		try {
-			var confirmed = localStorage.getItem('ageConfirmed');
-			if (confirmed === 'yes') return;
+ try {
+ var confirmed = localStorage.getItem('ageConfirmed');
+ if (confirmed === 'yes') return;
 
-			showAgeModal();
+ showAgeModal();
 
-			var accept = document.getElementById('age-accept');
-			var decline = document.getElementById('age-decline');
+ var accept = document.getElementById('age-accept');
+ var decline = document.getElementById('age-decline');
 
-			if (accept) accept.addEventListener('click', function() {
-				localStorage.setItem('ageConfirmed','yes');
-				hideAgeModal();
-			});
+ if (accept) accept.addEventListener('click', function() {
+ localStorage.setItem('ageConfirmed','yes');
+ hideAgeModal();
+ });
 
-			if (decline) decline.addEventListener('click', function() {
-				// Redirect away if user is not of age
-				window.location.href = 'https://x.com/Futa_on_Top';
-			});
+ if (decline) decline.addEventListener('click', function() {
+ // Redirect away if user is not of age
+ window.location.href = 'https://x.com/Futa_on_Top';
+ });
 
-			// Close with Escape (acts like decline)
-			document.addEventListener('keydown', function(e) {
-				if (e.key === 'Escape') {
-					window.location.href = 'https://x.com/Futa_on_Top';
-				}
-			});
+ // Escape declines only while the modal is open
+ document.addEventListener('keydown', function(e) {
+ if (e.key !== 'Escape') return;
+ var modal = document.getElementById('age-modal');
+ if (modal && modal.getAttribute('aria-hidden') === 'false') {
+ window.location.href = 'https://x.com/Futa_on_Top';
+ }
+ });
 
-		} catch (e) {
-			console.warn('Age modal error', e);
-		}
+ } catch (e) {
+ console.warn('Age modal error', e);
+ }
 	});
 })();
