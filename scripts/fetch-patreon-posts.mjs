@@ -67,11 +67,13 @@ function cleanExcerpt(text) {
 
 function pickImage(attrs) {
  const img = attrs.image || {};
+ // Prefer aspect-ratio-preserving Patreon URLs. Square thumbs make 16:9 cards look over-zoomed.
  return (
- img.thumb_square_url ||
  img.thumb_url ||
  img.url ||
  img.large_url ||
+ img.thumb_square_large_url ||
+ img.thumb_square_url ||
  null
  );
 }

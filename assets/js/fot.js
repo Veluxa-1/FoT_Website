@@ -59,33 +59,41 @@
         var title = escapeHtml(p.title || 'Free post');
         var url = escapeHtml(p.url || 'https://www.patreon.com/futaontop');
         var excerpt = escapeHtml(p.excerpt || '');
-        var tag = escapeHtml(p.tag || 'Free');
-        var cta = escapeHtml(p.cta || 'Read more');
-        var date = escapeHtml(formatDate(p.date));
+        var rawTag = p.tag || 'Free';
+        var tag = escapeHtml(String(rawTag).toLowerCase() === 'free' ? 'Public post' : rawTag);
+        var cta = escapeHtml(p.cta || 'Read free post');
+        var dateText = formatDate(p.date);
+        var date = escapeHtml(dateText);
+        var dateIso = escapeHtml(p.date || '');
         var img = p.image ? escapeHtml(p.image) : '';
+        var ariaTitle = escapeHtml('Read free post: ' + (p.title || 'Free post'));
 
-        var media = img
-          ? '<a class="post-card__media" href="' +
-            url +
-            '" target="_blank" rel="noopener noreferrer">' +
-            '<img src="' +
-            img +
-            '" alt="" loading="lazy" width="360" height="360" />' +
-            '</a>'
-          : '<a class="post-card__media post-card__media--empty" href="' +
-            url +
-            '" target="_blank" rel="noopener noreferrer" aria-hidden="true"></a>';
+        var media =
+          '<a class="post-card__media' +
+          (img ? '' : ' post-card__media--empty') +
+          '" href="' +
+          url +
+          '" target="_blank" rel="noopener noreferrer" aria-label="' +
+          ariaTitle +
+          '">' +
+          (img
+            ? '<img src="' +
+              img +
+              '" alt="" loading="lazy" decoding="async" width="640" height="360" />'
+            : '') +
+          '<span class="post-card__shade" aria-hidden="true"></span>' +
+          '<span class="post-card__tag">' +
+          tag +
+          '</span>' +
+          (date
+            ? '<time class="post-card__date" datetime="' + dateIso + '">' + date + '</time>'
+            : '') +
+          '</a>';
 
         return (
           '<article class="post-card post-card--media">' +
           media +
           '<div class="post-card__body">' +
-          '<div class="post-card__top">' +
-          '<span class="post-card__tag">' +
-          tag +
-          '</span>' +
-          (date ? '<span class="post-card__date">' + date + '</span>' : '') +
-          '</div>' +
           '<h3><a href="' +
           url +
           '" target="_blank" rel="noopener noreferrer">' +
@@ -94,7 +102,9 @@
           (excerpt ? '<p class="post-card__excerpt">' + excerpt + '</p>' : '') +
           '<a class="post-card__more" href="' +
           url +
-          '" target="_blank" rel="noopener noreferrer">' +
+          '" target="_blank" rel="noopener noreferrer" aria-label="' +
+          ariaTitle +
+          '">' +
           cta +
           ' -></a>' +
           '</div>' +
@@ -102,6 +112,14 @@
         );
       })
       .join('');
+
+    qsa('.post-card__media img', grid).forEach(function (imgEl) {
+      imgEl.addEventListener('error', function () {
+        var media = imgEl.closest('.post-card__media');
+        if (media) media.classList.add('post-card__media--empty', 'post-card__media--broken');
+        imgEl.remove();
+      }, { once: true });
+    });
 
     if (note) {
       var bits = [];
@@ -137,6 +155,52 @@
           ]
         });
       });
+  }
+
+  function initAgeGate() {
+    var modal = qs('#age-modal');
+    if (!modal) return;
+
+    function showAgeModal() {
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('age-locked');
+    }
+
+    function hideAgeModal() {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('age-locked');
+    }
+
+    try {
+      if (localStorage.getItem('ageConfirmed') === 'yes') return;
+      showAgeModal();
+
+      var accept = qs('#age-accept');
+      var decline = qs('#age-decline');
+
+      if (accept) {
+        accept.addEventListener('click', function () {
+          localStorage.setItem('ageConfirmed', 'yes');
+          hideAgeModal();
+        });
+      }
+
+      if (decline) {
+        decline.addEventListener('click', function () {
+          window.location.href = 'https://x.com/Futa_on_Top';
+        });
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key !== 'Escape') return;
+        if (modal.getAttribute('aria-hidden') === 'false') {
+          window.location.href = 'https://x.com/Futa_on_Top';
+        }
+      });
+    } catch (e) {
+      /* Keep the page usable if storage is blocked. */
+      showAgeModal();
+    }
   }
 
   function renderRedgifs(data) {
@@ -339,6 +403,27 @@
     document.addEventListener('click', jump, true);
   }
 
+  function initVowboundScrollBridge(root) {
+    qsa('.vb-main', root).forEach(function (scroller) {
+      scroller.addEventListener('wheel', function (event) {
+        if (event.ctrlKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+
+        var maxScroll = scroller.scrollHeight - scroller.clientHeight;
+        if (maxScroll <= 1) return;
+
+        var atTop = scroller.scrollTop <= 1;
+        var atBottom = scroller.scrollTop >= maxScroll - 1;
+        var goingUp = event.deltaY < 0;
+        var goingDown = event.deltaY > 0;
+
+        if ((goingUp && atTop) || (goingDown && atBottom)) {
+          event.preventDefault();
+          window.scrollBy({ top: event.deltaY, left: 0, behavior: 'auto' });
+        }
+      }, { passive: false });
+    });
+  }
+
   function initVowbound() {
     var root = qs('.vowbound');
     if (!root) return;
@@ -349,6 +434,8 @@
 
     var tabs = qsa('.vb-tabs [data-vb-page]', root);
     var indexEl = qs('#vb-page-index');
+
+    initVowboundScrollBridge(root);
 
     tabs.forEach(function (tab, index) {
       var panel = index === 0 ? page1 : page2;
@@ -388,6 +475,10 @@
         tab.tabIndex = on ? 0 : -1;
       });
 
+      qsa('.vb-main', page === 1 ? page1 : page2).forEach(function (main) {
+        main.scrollTop = 0;
+      });
+
       if (indexEl) indexEl.textContent = 'PAGE 0' + page + ' / 02';
 
     }
@@ -406,12 +497,24 @@
     goTo(1);
   }
 
+  function scheduleNonCriticalWork(callback) {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(callback, { timeout: 1800 });
+      return;
+    }
+    window.setTimeout(callback, 700);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    loadRedgifs();
-    loadFreePosts();
+    initAgeGate();
     initFastAnchors();
     initVowbound();
     initHeaderScroll();
     markExternal();
+
+    scheduleNonCriticalWork(function () {
+      loadRedgifs();
+      loadFreePosts();
+    });
   });
 })();
