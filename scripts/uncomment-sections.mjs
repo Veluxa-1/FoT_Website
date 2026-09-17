@@ -13,7 +13,7 @@ html = html.replace(/<!--\s*(<section id="two")/g, '$1');
 html = html.replace(/(<\/section>)\s*-->/g, (m, close, offset) => {
   // only strip if near one/two context
   const before = html.slice(Math.max(0, offset - 400), offset);
-  if (/id="(?:one|two)"/.test(before) || /Futaheim|Futa on Top/.test(before)) return close;
+  if (/id="(?:one|two)"/.test(before) || /Futa Heim|Futa on Top/.test(before)) return close;
   return m;
 });
 

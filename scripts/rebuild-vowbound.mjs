@@ -84,7 +84,7 @@ const section = `
 
 								<footer class="vb-actions">
 									<a class="vb-btn vb-btn--patreon" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Patreon</a>
-									<a class="vb-btn vb-btn--steam" href="https://store.steampowered.com/app/4594450/Futa_Heim/" target="_blank" rel="noopener noreferrer">Futaheim</a>
+									<a class="vb-btn vb-btn--steam" href="https://store.steampowered.com/app/4594450/Futa_Heim/" target="_blank" rel="noopener noreferrer">Futa Heim</a>
 									<button type="button" class="vb-btn vb-btn--gold" data-vb-page="2">Protocol -></button>
 								</footer>
 							</div>
@@ -180,7 +180,7 @@ const section = `
 
 					<footer class="vb-foot">
 						<span class="vb-foot__page" id="vb-page-index">PAGE 01 / 02</span>
-						<span>#VX-THROXXA-69 | Mistress Throxxa | From Futaheim</span>
+						<span>#VX-THROXXA-69 | Mistress Throxxa | From Futa Heim</span>
 						<span>Vowbound - "Til death, and then some."</span>
 					</footer>
 				</div>

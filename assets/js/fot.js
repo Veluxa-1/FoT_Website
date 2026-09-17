@@ -124,7 +124,7 @@
     if (note) {
       var bits = [];
       if (data.updated) bits.push('Updated ' + formatDate(data.updated));
-      bits.push('Public / free posts only');
+      // bits.push('Free posts only');
       bits.push('Full posts on Patreon');
       note.textContent = bits.join(' | ');
     }
@@ -237,7 +237,7 @@
         var poster = escapeHtml(item.localPoster || localPosters[index % localPosters.length]);
         var duration = escapeHtml(formatDuration(item.duration));
         var audio = item.hasAudio ? 'Audio' : 'Silent';
-        var title = 'Futaheim animation ' + (index + 1);
+        var title = 'Futa Heim animation ' + (index + 1);
         var ratio =
           Number(item.width) > 0 && Number(item.height) > 0
             ? Math.max(0.55, Math.min(1.8, Number(item.width) / Number(item.height)))

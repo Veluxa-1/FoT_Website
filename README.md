@@ -1,6 +1,6 @@
 # FoT_Website
 
-Static marketing site for Futa on Top / Futaheim.
+Static marketing site for Futa on Top / Futa Heim.
 
 ## Notes
 

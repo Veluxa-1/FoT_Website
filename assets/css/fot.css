@@ -3757,9 +3757,6 @@ a[href*="subscribestar"] { --brand-icon: var(--icon-subscribestar); }
  .btn-social[href*="futaontop.itch.io"],
  .btn-social[href*="discord.gg"],
  .btn-social[href*="subscribestar"],
- .vb-btn[href*="patreon.com"],
- .vb-btn[href*="store.steampowered.com"],
- .vb-btn[href*="discord.gg"],
  .footer-col a[href*="patreon.com"],
  .footer-col a[href*="discord.gg"],
  .footer-col a[href*="subscribestar"],
@@ -3935,5 +3932,81 @@ a[href*="subscribestar"] { --brand-icon: var(--icon-subscribestar); }
  #header nav ul li a.is-cta,
  #header nav ul li a.is-cta-steam {
   min-width: 2.35rem;
+ }
+}
+
+
+/* ===== Vowbound long-action button polish ===== */
+.vowbound {
+ --vb-icon-submit: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M4 4h16v12H8.2L4 20V4zm3 3v2h10V7H7zm0 4v2h7v-2H7z'/%3E%3C/svg%3E");
+ --vb-icon-session: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 2h2v3h6V2h2v3h3v16H4V5h3V2zm11 8H6v9h12v-9zm-9 2h3v3H9v-3z'/%3E%3C/svg%3E");
+ --vb-icon-forward: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13.5 5 20 12l-6.5 7-1.4-1.3 4.2-4.7H4v-2h12.3l-4.2-4.7L13.5 5z'/%3E%3C/svg%3E");
+ --vb-icon-back: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.5 5 4 12l6.5 7 1.4-1.3L7.7 13H20v-2H7.7l4.2-4.7L10.5 5z'/%3E%3C/svg%3E");
+ --vb-icon-contract: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 2h9l3 3v17H6V2zm8 1.8V6h2.2L14 3.8zM8 9h8v2H8V9zm0 4h8v2H8v-2zm0 4h5v2H8v-2z'/%3E%3C/svg%3E");
+ --vb-icon-offer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 9.7 8.2 4 8.8l4.3 3.8L7.1 18 12 15.2 16.9 18l-1.2-5.4L20 8.8l-5.7-.6L12 3z'/%3E%3C/svg%3E");
+}
+
+.vowbound .vb-actions {
+ grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.18fr) minmax(0, 1fr);
+ align-items: stretch;
+ gap: clamp(0.45rem, 0.9vw, 0.75rem);
+}
+
+.vowbound .vb-btn {
+ gap: 0.42rem;
+ min-width: 0;
+ min-height: clamp(2.45rem, 3.8vw, 3.15rem);
+ padding: clamp(0.48rem, 0.8vw, 0.72rem) clamp(0.6rem, 1vw, 0.95rem);
+ font-size: clamp(0.64rem, 0.72vw, 0.78rem);
+ line-height: 1.18;
+ white-space: normal;
+ text-wrap: balance;
+ overflow-wrap: anywhere;
+ text-align: center;
+}
+
+.vowbound .vb-btn::before {
+ content: "";
+ display: inline-block;
+ width: 1.05em;
+ height: 1.05em;
+ flex: 0 0 auto;
+ background: currentColor;
+ opacity: 0.92;
+ transform: translateY(0.04em);
+ -webkit-mask: var(--vb-action-icon) center / contain no-repeat;
+ mask: var(--vb-action-icon) center / contain no-repeat;
+}
+
+.vowbound .vb-btn[href*="patreon.com"] { --vb-action-icon: var(--vb-icon-submit); }
+.vowbound .vb-btn[href*="store.steampowered.com"] { --vb-action-icon: var(--vb-icon-session); }
+.vowbound .vb-btn[data-vb-page="2"] { --vb-action-icon: var(--vb-icon-forward); }
+.vowbound .vb-btn[data-vb-page="1"] { --vb-action-icon: var(--vb-icon-back); }
+.vowbound .vb-btn[href*="discord.gg"] { --vb-action-icon: var(--vb-icon-contract); }
+.vowbound .vb-btn[href*="patreon.com"]:last-child { --vb-action-icon: var(--vb-icon-offer); }
+
+.vowbound .vb-btn--gold::before {
+ opacity: 0.82;
+}
+
+@media screen and (min-width: 761px) and (max-width: 1080px) {
+ .vowbound .vb-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+ }
+
+ .vowbound .vb-actions .vb-btn:last-child {
+  grid-column: 1 / -1;
+ }
+
+ .vowbound .vb-btn {
+  min-height: 2.75rem;
+  font-size: clamp(0.7rem, 1.15vw, 0.84rem);
+ }
+}
+
+@media screen and (min-width: 1081px) and (max-width: 1280px) {
+ .vowbound .vb-btn {
+  font-size: clamp(0.62rem, 0.72vw, 0.72rem);
+  padding-inline: 0.55rem;
  }
 }
