@@ -1,6 +1,6 @@
 {
   "name": "Futa on Top",
-  "short_name": "Futa on Top",
+  "short_name": "FoT",
   "description": "Adult visual novels by Futa on Top. 18+ only.",
   "start_url": "/",
   "scope": "/",
@@ -14,14 +14,33 @@
       "type": "image/png"
     },
     {
+      "src": "/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
       "src": "/images/brand/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "/images/brand/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/brand/maskable-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/brand/maskable-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
