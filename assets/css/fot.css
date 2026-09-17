@@ -3723,3 +3723,217 @@ html {
   border-color: #201017;
  }
 }
+
+
+/* ===== Lightweight brand logos for external CTAs ===== */
+:root {
+ --icon-play: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M8%205.4v13.2L18.8%2012%208%205.4z%27%2F%3E%3C%2Fsvg%3E");
+ --icon-patreon: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%203h4.2v18H4zM15.2%203a6.8%206.8%200%201%200%200%2013.6%206.8%206.8%200%200%200%200-13.6z%27%2F%3E%3C%2Fsvg%3E");
+ --icon-steam: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M12%202.2a9.8%209.8%200%200%200-9.5%207.4l5.2%202.1a3.3%203.3%200%200%201%201.9-.6l3.6-5.2a4.7%204.7%200%201%201%204.6%205.8h-.2l-5.2%203.7a3.3%203.3%200%201%201-6.4%201.4l-3.7-1.5A9.8%209.8%200%201%200%2012%202.2Zm5.8%203a2.8%202.8%200%201%200%200%205.6%202.8%202.8%200%200%200%200-5.6Zm0%201.2a1.6%201.6%200%201%201%200%203.2%201.6%201.6%200%200%201%200-3.2Zm-8.2%206.8c-.4%200-.7.1-1%20.3l2.1.9c.8.3%201.2%201.2.8%202-.3.8-1.2%201.2-2%20.8l-2.1-.9a2.2%202.2%200%201%200%202.2-3.1Z%27%2F%3E%3C%2Fsvg%3E");
+ --icon-itch: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M5%204h14l1.2%204.1c.2.8-.2%201.7-1%202.1-.7.4-1.7.3-2.3-.4-.6.8-1.9.9-2.7.1-.7.8-2%20.8-2.7%200-.8.8-2%20.7-2.7-.1-.6.7-1.6.8-2.3.4-.8-.4-1.2-1.3-1-2.1L5%204zm1.5%207.8c.8.1%201.7-.1%202.4-.7.9.7%202.2.7%203.1.1.9.6%202.2.6%203.1-.1.7.6%201.6.8%202.4.7V20h-11v-8.2zm3.3%202.2v4h4.4v-4H9.8z%27%2F%3E%3C%2Fsvg%3E");
+ --icon-discord: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M7.6%205.2A13.7%2013.7%200%200%201%2011%204.1l.4.8c.4%200%20.8-.1%201.2-.1l.4-.7a13.7%2013.7%200%200%201%203.4%201.1c2.1%203.1%202.7%206.1%202.4%209.1a13.9%2013.9%200%200%201-4.2%202.1l-.9-1.4c.5-.2%201-.4%201.4-.7-.3-.2-.6-.4-.8-.6a6.9%206.9%200%200%201-4.6%200c-.3.2-.5.4-.8.6.4.3.9.5%201.4.7l-.9%201.4a13.9%2013.9%200%200%201-4.2-2.1c-.3-3%20.3-6%202.4-9.1zM9.2%2012.7c.8%200%201.4-.7%201.4-1.6s-.6-1.6-1.4-1.6-1.4.7-1.4%201.6.6%201.6%201.4%201.6zm5.6%200c.8%200%201.4-.7%201.4-1.6s-.6-1.6-1.4-1.6-1.4.7-1.4%201.6.6%201.6%201.4%201.6z%27%2F%3E%3C%2Fsvg%3E");
+ --icon-subscribestar: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27m12%202.7%202.7%205.5%206.1.9-4.4%204.3%201%206.1L12%2016.6l-5.4%202.9%201-6.1-4.4-4.3%206.1-.9L12%202.7z%27%2F%3E%3C%2Fsvg%3E");
+}
+
+a[href*="patreon.com"] { --brand-icon: var(--icon-patreon); }
+a[href*="store.steampowered.com"],
+a[href*="steamcommunity.com"] { --brand-icon: var(--icon-steam); }
+a[href*="futaontop.itch.io"],
+a[href*="itch.io"] { --brand-icon: var(--icon-itch); }
+a[href*="discord.gg"],
+a[href*="discord.com"] { --brand-icon: var(--icon-discord); }
+a[href*="subscribestar"] { --brand-icon: var(--icon-subscribestar); }
+
+:where(
+ #header nav a[href*="patreon.com"],
+ #header nav a[href*="store.steampowered.com"],
+ .fot-btn[href*="patreon.com"],
+ .fot-btn[href*="store.steampowered.com"],
+ .fot-btn[href*="futaontop.itch.io"],
+ .fot-btn[href*="discord.gg"],
+ .fot-btn[href*="subscribestar"],
+ .btn-social[href*="patreon.com"],
+ .btn-social[href*="store.steampowered.com"],
+ .btn-social[href*="futaontop.itch.io"],
+ .btn-social[href*="discord.gg"],
+ .btn-social[href*="subscribestar"],
+ .vb-btn[href*="patreon.com"],
+ .vb-btn[href*="store.steampowered.com"],
+ .vb-btn[href*="discord.gg"],
+ .footer-col a[href*="patreon.com"],
+ .footer-col a[href*="discord.gg"],
+ .footer-col a[href*="subscribestar"],
+ .footer-links-inline a[href*="patreon.com"],
+ .footer-links-inline a[href*="discord.gg"],
+ .footer-links-inline a[href*="store.steampowered.com"],
+ .conv-bar a[href*="patreon.com"],
+ .conv-bar a[href*="store.steampowered.com"]
+)::before {
+ content: "";
+ display: inline-block;
+ width: 1.08em;
+ height: 1.08em;
+ flex: 0 0 auto;
+ background: currentColor;
+ -webkit-mask: var(--brand-icon) center / contain no-repeat;
+ mask: var(--brand-icon) center / contain no-repeat;
+}
+
+#header nav a[href*="patreon.com"]::before,
+#header nav a[href*="store.steampowered.com"]::before {
+ margin-right: 0.35rem;
+}
+
+.btn-social::before,
+.btn-play::before,
+.fot-btn::before,
+.vb-btn::before,
+.conv-bar a::before {
+ opacity: 0.96;
+}
+
+.footer-col a[href*="patreon.com"],
+.footer-col a[href*="discord.gg"],
+.footer-col a[href*="subscribestar"],
+.footer-links-inline a[href*="patreon.com"],
+.footer-links-inline a[href*="discord.gg"],
+.footer-links-inline a[href*="store.steampowered.com"] {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.45rem;
+}
+
+
+/* ===== Homepage CTA icon polish ===== */
+.btn-play::before {
+ content: "";
+ display: inline-block;
+ width: 1.05em;
+ height: 1.05em;
+ flex: 0 0 auto;
+ background: currentColor;
+ -webkit-mask: var(--icon-play) center / contain no-repeat;
+ mask: var(--icon-play) center / contain no-repeat;
+ opacity: 0.88;
+ transform: translateY(0.02em);
+}
+
+.btn-play {
+ gap: 0.42rem;
+}
+
+.btn-social {
+ gap: 0.48rem;
+ padding-inline: clamp(0.7rem, 1.05vw, 0.95rem) !important;
+ font-size: 0.74rem !important;
+ font-weight: 900 !important;
+}
+
+.btn-social::before {
+ width: 1.12em;
+ height: 1.12em;
+ opacity: 0.92;
+ transform: translateY(0.01em);
+}
+
+.btn-social span {
+ min-width: 0;
+}
+
+.btn-steam::before,
+.fot-btn--steam::before,
+.fot-btn--steam-light::before,
+#header nav a[href*="store.steampowered.com"]::before {
+ opacity: 0.9;
+}
+
+.btn-itch::before,
+.btn-discord::before,
+.btn-subscribestar::before,
+.btn-patreon::before {
+ opacity: 0.96;
+}
+
+@media screen and (max-width: 760px) {
+ .btn-social {
+  gap: 0.38rem;
+  padding-inline: 0.65rem !important;
+ }
+}
+
+
+/* ===== Homepage CTA service icon refinements ===== */
+.btn-steam::before,
+.fot-btn--steam::before,
+.fot-btn--steam-light::before,
+#header nav a[href*="store.steampowered.com"]::before {
+ width: 1.22em;
+ height: 1.22em;
+}
+
+.btn-social::before {
+ margin-inline-end: 0.02rem;
+}
+
+@media screen and (min-width: 901px) {
+ .game-card__links {
+  align-items: stretch;
+ }
+
+ .btn-social {
+  min-width: 0;
+ }
+}
+
+/* ===== Stable live scale calibration ===== */
+:root {
+ --fot-live-nav-font: 0.9rem;
+ --fot-live-nav-h: 2.7rem;
+}
+
+#header h1 a {
+ font-size: 1rem !important;
+}
+
+#header nav ul {
+ gap: 0.28rem;
+}
+
+#header nav ul li a {
+ height: var(--fot-live-nav-h) !important;
+ line-height: var(--fot-live-nav-h) !important;
+ padding-inline: 0.9rem !important;
+ font-size: var(--fot-live-nav-font) !important;
+ letter-spacing: 0.065em;
+}
+
+#header nav ul li a.is-cta,
+#header nav ul li a.is-cta-steam {
+ min-width: 7rem;
+ justify-content: center;
+}
+
+#header nav ul li a::before {
+ width: 1.14em;
+ height: 1.14em;
+}
+
+@media screen and (max-width: 736px) {
+ :root {
+  --fot-live-nav-font: 0.74rem;
+  --fot-live-nav-h: 2.25rem;
+ }
+
+ #header nav ul {
+  gap: 0.12rem;
+ }
+
+ #header nav ul li a {
+  padding-inline: 0.5rem !important;
+ }
+
+ #header nav ul li a.is-cta,
+ #header nav ul li a.is-cta-steam {
+  min-width: 2.35rem;
+ }
+}

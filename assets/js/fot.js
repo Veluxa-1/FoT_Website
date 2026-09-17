@@ -415,10 +415,14 @@
         var atBottom = scroller.scrollTop >= maxScroll - 1;
         var goingUp = event.deltaY < 0;
         var goingDown = event.deltaY > 0;
+        var deltaY = event.deltaY;
+
+        if (event.deltaMode === 1) deltaY *= 16;
+        else if (event.deltaMode === 2) deltaY *= window.innerHeight;
 
         if ((goingUp && atTop) || (goingDown && atBottom)) {
           event.preventDefault();
-          window.scrollBy({ top: event.deltaY, left: 0, behavior: 'auto' });
+          window.scrollBy({ top: deltaY, left: 0, behavior: 'auto' });
         }
       }, { passive: false });
     });
@@ -476,7 +480,7 @@
       });
 
       qsa('.vb-main', page === 1 ? page1 : page2).forEach(function (main) {
-        main.scrollTop = 0;
+        main.scrollTo({ top: 0, left: 0, behavior: 'auto' });
       });
 
       if (indexEl) indexEl.textContent = 'PAGE 0' + page + ' / 02';
