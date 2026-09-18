@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://futaontop.com/</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://futaontop.com/images/brand/og-image.jpg</image:loc>
+      <image:title>Futa on Top and Futa Heim adult visual novels</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://futaontop.com/images/capsule-futa-on-top.webp</image:loc>
+      <image:title>Futa on Top adult futa porn game on Steam</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://futaontop.com/images/capsule-futaheim.webp</image:loc>
+      <image:title>Futa Heim / Futaheim adult visual novel</image:title>
+    </image:image>
   </url>
 </urlset>
