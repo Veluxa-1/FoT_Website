@@ -4652,3 +4652,81 @@ a[href*="subscribestar"] { --brand-icon: var(--icon-subscribestar); }
 #header h1 a span {
  margin-left: 0.22em;
 }
+
+/* ===== Language flag selector ===== */
+.lang-btn {
+  min-width: 2.35rem;
+  padding-inline: 0.46rem;
+  gap: 0;
+}
+
+.lang-flag {
+  position: relative;
+  display: inline-block;
+  width: 1.34rem;
+  height: 0.9rem;
+  overflow: hidden;
+  border-radius: 0.16rem;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.32), 0 1px 4px rgba(0, 0, 0, 0.35);
+  transform: translateY(0.01em);
+}
+
+.lang-flag--us {
+  background:
+    linear-gradient(#21468b 0 0) 0 0 / 42% 54% no-repeat,
+    repeating-linear-gradient(to bottom, #b22234 0 7.7%, #fff 7.7% 15.4%);
+}
+
+.lang-flag--us::before {
+  content: "";
+  position: absolute;
+  left: 0.13rem;
+  top: 0.11rem;
+  width: 0.12rem;
+  height: 0.12rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0.22rem 0 #fff, 0.44rem 0 #fff, 0 0.2rem #fff, 0.22rem 0.2rem #fff, 0.44rem 0.2rem #fff;
+}
+
+.lang-flag--cn {
+  background: #de2910;
+}
+
+.lang-flag--cn::before {
+  content: "★";
+  position: absolute;
+  left: 0.13rem;
+  top: 0.02rem;
+  color: #ffde00;
+  font-size: 0.42rem;
+  line-height: 1;
+}
+
+.lang-flag--cn::after {
+  content: "";
+  position: absolute;
+  left: 0.54rem;
+  top: 0.17rem;
+  width: 0.11rem;
+  height: 0.11rem;
+  border-radius: 50%;
+  background: #ffde00;
+  box-shadow: 0.18rem 0.12rem #ffde00, 0.14rem 0.34rem #ffde00, -0.05rem 0.46rem #ffde00;
+}
+
+.lang-flag--ru {
+  background: linear-gradient(to bottom, #fff 0 33.333%, #0039a6 33.333% 66.666%, #d52b1e 66.666% 100%);
+}
+
+.lang-flag--fr {
+  background: linear-gradient(to right, #0055a4 0 33.333%, #fff 33.333% 66.666%, #ef4135 66.666% 100%);
+}
+
+.lang-code { display: none !important; }
+
+@media screen and (max-width: 1180px) and (min-width: 901px) {
+  .nav-lang { padding-inline: 0.18rem; }
+  .lang-btn { min-width: 2.1rem; padding-inline: 0.36rem; }
+  .lang-flag { width: 1.22rem; height: 0.82rem; }
+}

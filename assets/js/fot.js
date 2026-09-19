@@ -1288,6 +1288,18 @@
     });
   }
 
+  function anchorScrollTarget(hash, target) {
+    if (hash === '#work' || hash === '#free') {
+      return qs('.section-head', target) || qs('.fot-kicker', target) || target;
+    }
+    return target;
+  }
+
+  function anchorScrollGap(hash) {
+    if (hash === '#work' || hash === '#free') return 10;
+    return 0;
+  }
+
   function initFastAnchors() {
     function jump(event) {
       var source = event.target || event.srcElement;
@@ -1312,12 +1324,14 @@
         hash = '#work';
       }
 
+      var scrollTarget = anchorScrollTarget(hash, target);
+
       event.preventDefault();
       event.stopImmediatePropagation();
 
       var header = qs('#header');
       var offset = header ? header.offsetHeight - 1 : 0;
-      var y = Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - offset);
+      var y = Math.max(0, scrollTarget.getBoundingClientRect().top + window.pageYOffset - offset - anchorScrollGap(hash));
       window.scrollTo({ top: y, left: 0, behavior: 'auto' });
       history.pushState(null, '', hash);
     }
@@ -1424,6 +1438,59 @@
     goTo(1);
   }
 
+  function analyticsDestinationFor(url) {
+    var host = (url.hostname || '').replace(/^www\./, '').toLowerCase();
+    if (host.indexOf('steampowered.com') !== -1 || host.indexOf('steamcommunity.com') !== -1) return 'steam';
+    if (host.indexOf('patreon.com') !== -1) return 'patreon';
+    if (host.indexOf('itch.io') !== -1) return 'itch';
+    if (host.indexOf('discord.gg') !== -1 || host.indexOf('discord.com') !== -1) return 'discord';
+    if (host.indexOf('subscribestar') !== -1) return 'subscribestar';
+    if (host === 'x.com' || host === 'twitter.com') return 'x';
+    if (host.indexOf('redgifs.com') !== -1) return 'animation_source';
+    return 'external';
+  }
+
+  function analyticsLinkText(link) {
+    var text = (link.getAttribute('aria-label') || link.textContent || '').replace(/\s+/g, ' ').trim();
+    if (text.length > 96) text = text.slice(0, 93) + '...';
+    return text || 'unlabeled link';
+  }
+
+  function initAnalyticsEvents() {
+    if (window.FOT_GA_DISABLED) return;
+
+    document.addEventListener('click', function (event) {
+      var source = event.target || event.srcElement;
+      if (!source || !source.closest) return;
+
+      var link = source.closest('a[href]');
+      if (!link) return;
+
+      var url;
+      try {
+        url = new URL(link.getAttribute('href'), window.location.href);
+      } catch (e) {
+        return;
+      }
+
+      if (!/^https?:$/.test(url.protocol) || url.hostname === window.location.hostname) return;
+
+      var destination = analyticsDestinationFor(url);
+      var eventName = destination === 'external' ? 'outbound_click' : 'outbound_' + destination + '_click';
+      var payload = {
+        link_url: url.href,
+        link_domain: url.hostname,
+        link_text: analyticsLinkText(link),
+        outbound: true,
+        transport_type: 'beacon'
+      };
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, payload);
+      }
+    }, true);
+  }
+
   function scheduleNonCriticalWork(callback) {
     if ('requestIdleCallback' in window) {
       window.requestIdleCallback(callback, { timeout: 1800 });
@@ -1439,6 +1506,7 @@
     initVowbound();
     initHeaderScroll();
     markExternal();
+    initAnalyticsEvents();
 
     scheduleNonCriticalWork(function () {
       loadRedgifs();
