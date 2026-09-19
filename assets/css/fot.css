@@ -4730,3 +4730,10 @@ a[href*="subscribestar"] { --brand-icon: var(--icon-subscribestar); }
   .lang-btn { min-width: 2.1rem; padding-inline: 0.36rem; }
   .lang-flag { width: 1.22rem; height: 0.82rem; }
 }
+/* ===== Vowbound scroll feel fix: JS handles inner scroll, browser handles edges ===== */
+@media screen and (min-width: 761px) {
+  .vowbound .vb-main {
+    overscroll-behavior-y: auto !important;
+    scroll-behavior: auto !important;
+  }
+}

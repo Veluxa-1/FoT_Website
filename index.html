@@ -35,13 +35,15 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   window.FOT_GA_ID = 'G-HLE1L6KD3F';
-  window.FOT_GA_DISABLED = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/i.test(window.location.hostname);
+  window.FOT_GA_LOCAL_PREVIEW = /^(localhost|127\.0\.0\.1|0\.0\.0\.0)$/i.test(window.location.hostname);
+  window.FOT_GA_DEBUG = /(?:^|[?&])ga_debug=1(?:&|$)/.test(window.location.search);
+  window.FOT_GA_DISABLED = window.FOT_GA_LOCAL_PREVIEW && !window.FOT_GA_DEBUG;
   if (window.FOT_GA_DISABLED) {
     window['ga-disable-G-HLE1L6KD3F'] = true;
   }
   gtag('js', new Date());
   if (!window.FOT_GA_DISABLED) {
-    gtag('config', 'G-HLE1L6KD3F');
+    gtag('config', 'G-HLE1L6KD3F', { debug_mode: window.FOT_GA_DEBUG });
   }
  </script>
  <meta property="og:site_name" content="Futa on Top" />
@@ -281,8 +283,8 @@
 }
  </script>
  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <link rel="stylesheet" href="assets/css/main.min.css?v=20260918f" />
- <link rel="stylesheet" href="assets/css/fot.min.css?v=20260918f" />
+ <link rel="stylesheet" href="assets/css/main.min.css?v=20260918n" />
+ <link rel="stylesheet" href="assets/css/fot.min.css?v=20260918n" />
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;0,700;0,900;1,400&display=swap" onload="this.rel='stylesheet'">
@@ -692,19 +694,6 @@
  <a class="steam" href="https://store.steampowered.com/publisher/futaontop" target="_blank" rel="noopener noreferrer">Steam</a>
  </nav>
 
- <script src="assets/js/fot.js?v=20260918f" defer></script>
+ <script src="assets/js/fot.js?v=20260918n" defer></script>
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
