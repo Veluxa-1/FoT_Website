@@ -5,6 +5,197 @@
   var linksById = {};
   var tiersById = {};
   var sessionState = { authenticated: false, currentlyEntitledAmountCents: 0, accessLevel: 'none' };
+  var currentLang = 'en';
+  var STRINGS = {
+    en: {
+      htmlLang: 'en',
+      nav: { games: 'Games', art: 'Art', news: 'News', bonus: 'Bonus' },
+      bonus: { kicker: 'Patron Bonus', availableFiles: 'Available bonus files' },
+      auth: {
+        checkAccess: 'Check access',
+        checking: 'Checking...',
+        signIn: 'Sign in with Patreon',
+        signOut: 'Sign out',
+        refreshLinks: 'Refresh Links',
+        creatorAccess: 'Creator access',
+        oracleAccess: 'Oracle access',
+        initiateAccess: 'Initiate access',
+        noPaidTier: 'No paid tier',
+        checkoutOpened: 'Checkout opened'
+      },
+      cta: {
+        downloadsReady: 'Downloads ready',
+        download: 'Download',
+        unlock4k: 'Unlock 4K',
+        unlock1080p: 'Unlock 1080p',
+        upgrade4k: 'Upgrade for 4K',
+        upgradeAccess: 'Upgrade Access'
+      },
+      notice: {
+        signInCancelled: 'Sign-in cancelled.',
+        signInSetup: 'Patreon sign-in is not ready yet.',
+        signInFailed: 'Sign-in failed. Try again.',
+        higherTier: 'Higher tier needed.',
+        sessionExpired: 'Session expired. Sign in again.',
+        linkExpired: 'Link expired. Refresh links.',
+        fileMissing: 'File not available yet.',
+        unavailable: 'Downloads temporarily unavailable.',
+        downloadsUnavailable: 'Downloads unavailable.',
+        localWorkerDown: 'Local Worker is not responding.',
+        downloadsSlow: 'Downloads are taking longer than expected.',
+        downloadsUnreachable: 'Could not reach downloads.',
+        verifyFailed: 'Could not verify access.',
+        notResponding: 'Downloads are not responding.',
+        returnRefresh: 'Return here and refresh links.',
+        refreshingExpired: 'Refreshing expired link.',
+        pageLoadFailed: 'Could not load this page.',
+        comingSoon: 'Coming soon',
+        diagnostics: 'Diagnostics',
+        diagnosticsSummary: 'Download diagnostics.'
+      }
+    },
+    zh: {
+      htmlLang: 'zh-Hans',
+      nav: { games: '游戏', art: '美术', news: '新闻', bonus: '奖励' },
+      bonus: { kicker: '赞助者奖励', availableFiles: '可下载的奖励文件' },
+      auth: {
+        checkAccess: '检查权限',
+        checking: '检查中...',
+        signIn: '使用 Patreon 登录',
+        signOut: '退出登录',
+        refreshLinks: '刷新链接',
+        creatorAccess: '创作者权限',
+        oracleAccess: 'Oracle 权限',
+        initiateAccess: 'Initiate 权限',
+        noPaidTier: '未找到付费等级',
+        checkoutOpened: '已打开结账页面'
+      },
+      cta: {
+        downloadsReady: '下载已就绪',
+        download: '下载',
+        unlock4k: '解锁 4K',
+        unlock1080p: '解锁 1080p',
+        upgrade4k: '升级解锁 4K',
+        upgradeAccess: '升级权限'
+      },
+      notice: {
+        signInCancelled: '登录已取消。',
+        signInSetup: 'Patreon 登录尚未准备好。',
+        signInFailed: '登录失败，请重试。',
+        higherTier: '需要更高等级。',
+        sessionExpired: '会话已过期，请重新登录。',
+        linkExpired: '链接已过期，请刷新链接。',
+        fileMissing: '文件暂不可用。',
+        unavailable: '下载暂时不可用。',
+        downloadsUnavailable: '下载不可用。',
+        localWorkerDown: '本地 Worker 没有响应。',
+        downloadsSlow: '下载服务响应较慢。',
+        downloadsUnreachable: '无法连接下载服务。',
+        verifyFailed: '无法验证权限。',
+        notResponding: '下载服务没有响应。',
+        returnRefresh: '返回此页面并刷新链接。',
+        refreshingExpired: '正在刷新过期链接。',
+        pageLoadFailed: '无法加载此页面。',
+        comingSoon: '即将推出',
+        diagnostics: '诊断',
+        diagnosticsSummary: '下载诊断。'
+      }
+    },
+    ru: {
+      htmlLang: 'ru',
+      nav: { games: 'Игры', art: 'Арт', news: 'Новости', bonus: 'Бонус' },
+      bonus: { kicker: 'Бонус для патронов', availableFiles: 'Доступные бонусные файлы' },
+      auth: {
+        checkAccess: 'Проверить доступ',
+        checking: 'Проверяем...',
+        signIn: 'Войти через Patreon',
+        signOut: 'Выйти',
+        refreshLinks: 'Обновить ссылки',
+        creatorAccess: 'Доступ автора',
+        oracleAccess: 'Доступ Oracle',
+        initiateAccess: 'Доступ Initiate',
+        noPaidTier: 'Платный уровень не найден',
+        checkoutOpened: 'Оплата открыта'
+      },
+      cta: {
+        downloadsReady: 'Ссылки готовы',
+        download: 'Скачать',
+        unlock4k: 'Открыть 4K',
+        unlock1080p: 'Открыть 1080p',
+        upgrade4k: 'Повысить для 4K',
+        upgradeAccess: 'Повысить доступ'
+      },
+      notice: {
+        signInCancelled: 'Вход отменён.',
+        signInSetup: 'Вход через Patreon ещё не настроен.',
+        signInFailed: 'Не удалось войти. Попробуйте снова.',
+        higherTier: 'Нужен более высокий уровень.',
+        sessionExpired: 'Сессия истекла. Войдите снова.',
+        linkExpired: 'Ссылка истекла. Обновите ссылки.',
+        fileMissing: 'Файл пока недоступен.',
+        unavailable: 'Загрузки временно недоступны.',
+        downloadsUnavailable: 'Загрузки недоступны.',
+        localWorkerDown: 'Локальный Worker не отвечает.',
+        downloadsSlow: 'Сервис загрузок отвечает дольше обычного.',
+        downloadsUnreachable: 'Не удалось связаться с загрузками.',
+        verifyFailed: 'Не удалось проверить доступ.',
+        notResponding: 'Сервис загрузок не отвечает.',
+        returnRefresh: 'Вернитесь сюда и обновите ссылки.',
+        refreshingExpired: 'Обновляем истёкшую ссылку.',
+        pageLoadFailed: 'Не удалось загрузить страницу.',
+        comingSoon: 'Скоро',
+        diagnostics: 'Диагностика',
+        diagnosticsSummary: 'Диагностика загрузок.'
+      }
+    },
+    fr: {
+      htmlLang: 'fr',
+      nav: { games: 'Jeux', art: 'Art', news: 'Actus', bonus: 'Bonus' },
+      bonus: { kicker: 'Bonus Patreon', availableFiles: 'Fichiers bonus disponibles' },
+      auth: {
+        checkAccess: 'Vérifier l’accès',
+        checking: 'Vérification...',
+        signIn: 'Se connecter avec Patreon',
+        signOut: 'Se déconnecter',
+        refreshLinks: 'Actualiser les liens',
+        creatorAccess: 'Accès créateur',
+        oracleAccess: 'Accès Oracle',
+        initiateAccess: 'Accès Initiate',
+        noPaidTier: 'Aucun niveau payant',
+        checkoutOpened: 'Paiement ouvert'
+      },
+      cta: {
+        downloadsReady: 'Téléchargements prêts',
+        download: 'Télécharger',
+        unlock4k: 'Débloquer la 4K',
+        unlock1080p: 'Débloquer le 1080p',
+        upgrade4k: 'Passer à la 4K',
+        upgradeAccess: 'Améliorer l’accès'
+      },
+      notice: {
+        signInCancelled: 'Connexion annulée.',
+        signInSetup: 'La connexion Patreon n’est pas encore prête.',
+        signInFailed: 'Connexion échouée. Réessayez.',
+        higherTier: 'Niveau supérieur requis.',
+        sessionExpired: 'Session expirée. Connectez-vous à nouveau.',
+        linkExpired: 'Lien expiré. Actualisez les liens.',
+        fileMissing: 'Fichier pas encore disponible.',
+        unavailable: 'Téléchargements temporairement indisponibles.',
+        downloadsUnavailable: 'Téléchargements indisponibles.',
+        localWorkerDown: 'Le Worker local ne répond pas.',
+        downloadsSlow: 'Le service de téléchargement prend plus de temps que prévu.',
+        downloadsUnreachable: 'Impossible de joindre les téléchargements.',
+        verifyFailed: 'Impossible de vérifier l’accès.',
+        notResponding: 'Les téléchargements ne répondent pas.',
+        returnRefresh: 'Revenez ici et actualisez les liens.',
+        refreshingExpired: 'Actualisation du lien expiré.',
+        pageLoadFailed: 'Impossible de charger cette page.',
+        comingSoon: 'Bientôt',
+        diagnostics: 'Diagnostic',
+        diagnosticsSummary: 'Diagnostic des téléchargements.'
+      }
+    }
+  };
 
   function qs(sel, root) {
     return (root || document).querySelector(sel);
@@ -17,6 +208,65 @@
       .replace(/>/g, '&' + 'gt;')
       .replace(/"/g, '&' + 'quot;')
       .replace(/'/g, '&#39;');
+  }
+
+  function getPath(source, path) {
+    return path.split('.').reduce(function (value, part) {
+      return value && value[part] != null ? value[part] : null;
+    }, source);
+  }
+
+  function t(path) {
+    return getPath(STRINGS[currentLang] || STRINGS.en, path) || getPath(STRINGS.en, path) || path;
+  }
+
+  function localized(object, key) {
+    if (!object) return '';
+    var translations = object.translations && object.translations[currentLang];
+    return translations && translations[key] != null ? translations[key] : object[key];
+  }
+
+  function storedLanguage() {
+    try {
+      return localStorage.getItem('fotLanguage') || '';
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function detectLanguage() {
+    var saved = storedLanguage();
+    if (STRINGS[saved]) return saved;
+    var browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+    return STRINGS[browserLang] ? browserLang : 'en';
+  }
+
+  function applyLanguage(lang) {
+    currentLang = STRINGS[lang] ? lang : 'en';
+    document.documentElement.lang = STRINGS[currentLang].htmlLang || currentLang;
+
+    document.querySelectorAll('[data-i18n]').forEach(function (node) {
+      node.textContent = t(node.getAttribute('data-i18n'));
+    });
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(function (node) {
+      node.setAttribute('aria-label', t(node.getAttribute('data-i18n-aria-label')));
+    });
+    document.querySelectorAll('.lang-btn').forEach(function (button) {
+      var active = button.getAttribute('data-lang') === currentLang;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+
+    if (config) {
+      var title = qs('[data-download-title]');
+      var subtitle = qs('[data-download-subtitle]');
+      var pageTitle = localized(config, 'title') || 'Downloads';
+      if (title) title.textContent = pageTitle;
+      if (subtitle) subtitle.textContent = localized(config, 'subtitle') || '';
+      document.title = pageTitle + ' - Futa on Top';
+      updateSession(sessionState);
+      renderBuilds();
+    }
   }
 
   function apiBase() {
@@ -110,11 +360,11 @@
     var tier = tierForBuild(build);
     return Object.assign({
       build_id: build ? build.id : '',
-      build_name: build ? build.name : '',
+      build_name: build ? localized(build, 'name') : '',
       build_tier: build ? build.tier : '',
       build_size: build ? buildSizeLabel(build) : '',
-      build_type: build ? build.type : '',
-      tier_title: tier ? tier.title : '',
+      build_type: build ? localized(build, 'type') : '',
+      tier_title: tier ? localized(tier, 'title') : '',
       required_amount_cents: requiredAmountForTier(tier)
     }, extra || {});
   }
@@ -160,35 +410,35 @@
       trackEvent('auth_denied');
       shouldCleanUrl = true;
     } else if (status === 'cancelled') {
-      showInfo('Sign-in cancelled.');
+      showInfo(t('notice.signInCancelled'));
       trackEvent('auth_cancelled');
       shouldCleanUrl = true;
     } else if (status === 'setup') {
-      showWarning('Patreon sign-in is not ready yet.');
+      showWarning(t('notice.signInSetup'));
       trackEvent('auth_setup_missing');
       shouldCleanUrl = true;
     } else if (status === 'error') {
-      showError('Sign-in failed. Try again.');
+      showError(t('notice.signInFailed'));
       trackEvent('auth_error');
       shouldCleanUrl = true;
     } else if (downloadStatus === 'tier') {
-      showWarning('Higher tier needed.');
+      showWarning(t('notice.higherTier'));
       trackEvent('download_blocked_tier');
       shouldCleanUrl = true;
     } else if (downloadStatus === 'signed_out') {
-      showInfo('Session expired. Sign in again.');
+      showInfo(t('notice.sessionExpired'));
       trackEvent('download_blocked_signed_out');
       shouldCleanUrl = true;
     } else if (downloadStatus === 'expired') {
-      showWarning('Link expired. Refresh links.');
+      showWarning(t('notice.linkExpired'));
       trackEvent('download_link_expired');
       shouldCleanUrl = true;
     } else if (downloadStatus === 'missing') {
-      showError('File not available yet.');
+      showError(t('notice.fileMissing'));
       trackEvent('download_file_missing');
       shouldCleanUrl = true;
     } else if (downloadStatus === 'unavailable') {
-      showWarning('Downloads temporarily unavailable.');
+      showWarning(t('notice.unavailable'));
       trackEvent('download_unavailable');
       shouldCleanUrl = true;
     }
@@ -232,21 +482,22 @@
   }
 
   function buildPlatform(build) {
-    var os = String(build.os || '');
+    var os = String(localized(build, 'os') || '');
     if (/windows/i.test(os) && /linux/i.test(os)) return 'Windows + Linux';
     if (/mac/i.test(os)) return 'Mac';
     if (/android/i.test(os)) return 'Android';
-    if (/private|r2/i.test(os)) return String(build.name || 'Download').split('|')[0].trim() || 'Download';
-    if (/bonus|wallpaper/i.test(os)) return String(build.name || 'Bonus file').split('|')[0].trim() || 'Bonus file';
+    if (/private|r2/i.test(os)) return String(localized(build, 'name') || t('cta.download')).split('|')[0].trim() || t('cta.download');
+    if (/bonus|wallpaper|奖励|бонус/i.test(os)) return String(localized(build, 'name') || 'Bonus file').split('|')[0].trim() || 'Bonus file';
     return os || 'Build';
   }
 
   function buildQuality(build) {
-    var source = String((build.type || '') + ' ' + (build.name || '')).toLowerCase();
+    var type = localized(build, 'type');
+    var source = String((type || '') + ' ' + (localized(build, 'name') || '')).toLowerCase();
     if (source.indexOf('4k') !== -1) return '4K';
     if (source.indexOf('1080') !== -1) return '1080p';
     if (source.indexOf('720') !== -1) return '720p';
-    return build.type || 'Download';
+    return type || t('cta.download');
   }
 
   function patronUrl() {
@@ -280,9 +531,9 @@
   function lockedCtaLabel(build, tier) {
     var quality = buildQuality(build);
     if (isSignedIn() && accessRank(sessionState.accessLevel) > 0 && requiredRankForTier(tier) > accessRank(sessionState.accessLevel)) {
-      return tier.upgradeLabel || (quality === '4K' ? 'Upgrade for 4K' : 'Upgrade Access');
+      return localized(tier, 'upgradeLabel') || (quality === '4K' ? t('cta.upgrade4k') : t('cta.upgradeAccess'));
     }
-    return tier.joinLabel || (quality === '4K' ? 'Unlock 4K' : 'Unlock 1080p');
+    return localized(tier, 'joinLabel') || (quality === '4K' ? t('cta.unlock4k') : t('cta.unlock1080p'));
   }
 
   function lockedCtaUrl(tier) {
@@ -304,7 +555,7 @@
     var builds = group.builds || [];
     var unlockedCount = builds.filter(function (build) { return Boolean(linksById[build.id]); }).length;
     if (unlockedCount === builds.length && builds.length) {
-      return '<span class="download-tier__state download-tier__state--ready">Downloads ready</span>';
+      return '<span class="download-tier__state download-tier__state--ready">' + escapeHtml(t('cta.downloadsReady')) + '</span>';
     }
 
     var lockedUrl = lockedCtaUrl(tier);
@@ -316,7 +567,7 @@
 
   function buildStateHtml(build, tier, link) {
     if (link) {
-      return '<a class="download-link" href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener noreferrer" data-build-id="' + escapeHtml(build.id) + '">Download</a>';
+      return '<a class="download-link" href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener noreferrer" data-build-id="' + escapeHtml(build.id) + '">' + escapeHtml(t('cta.download')) + '</a>';
     }
 
     if (isSignedIn()) {
@@ -332,7 +583,7 @@
 
   function buildSizeLabel(build) {
     var size = String((build && build.size) || '').trim();
-    if (!size || /^tbd$/i.test(size)) return 'Coming soon';
+    if (!size || /^tbd$/i.test(size)) return t('notice.comingSoon');
     return size;
   }
 
@@ -377,19 +628,19 @@
 
   function renderTierGroup(group) {
     var tier = group.tier || {};
-    var price = tier.price || formatTierPrice(tier.amountCents || tier.amount_cents);
-    var summary = tier.summary || '';
+    var price = localized(tier, 'price') || tier.price || formatTierPrice(tier.amountCents || tier.amount_cents);
+    var summary = localized(tier, 'summary') || tier.summary || '';
     var isTest = group.id === 'test-mode';
     var isPremium = group.id === 'oracle-plus';
     var classes = 'download-tier' + (isTest ? ' download-tier--test' : '') + (isPremium ? ' download-tier--premium' : '');
-    var eyebrow = tier.eyebrow || (isTest ? 'Local only' : (isPremium ? 'Premium upgrade' : 'Most popular'));
+    var eyebrow = localized(tier, 'eyebrow') || tier.eyebrow || (isTest ? 'Local only' : (isPremium ? 'Premium upgrade' : 'Most popular'));
     var tierAction = tierActionHtml(group, tier);
     var heading = [
-      '<section class="' + classes + '" aria-label="' + escapeHtml(tier.title || 'Downloads') + '">',
+      '<section class="' + classes + '" aria-label="' + escapeHtml(localized(tier, 'title') || tier.title || 'Downloads') + '">',
       '<div class="download-tier__header">',
       '<div>',
       '<p class="download-tier__eyebrow">' + escapeHtml(eyebrow) + '</p>',
-      '<h2>' + escapeHtml(tier.title || 'Downloads') + '</h2>',
+      '<h2>' + escapeHtml(localized(tier, 'title') || tier.title || 'Downloads') + '</h2>',
       '</div>',
       '<div class="download-tier__meta">',
       price ? '<span>' + escapeHtml(price) + '</span>' : '',
@@ -424,10 +675,10 @@
 
   function renderDiagnosticsGroup(group) {
     var tier = group.tier || {};
-    var summary = tier.summary || 'Download diagnostics.';
+    var summary = localized(tier, 'summary') || tier.summary || t('notice.diagnosticsSummary');
     return [
       '<details class="download-diagnostics">',
-      '<summary><span>Diagnostics</span><small>' + escapeHtml(summary) + '</small></summary>',
+      '<summary><span>' + escapeHtml(t('notice.diagnostics')) + '</span><small>' + escapeHtml(summary) + '</small></summary>',
       renderTierGroup(group),
       '</details>'
     ].join('');
@@ -475,22 +726,22 @@
         });
       }
       if (session.accessLevel === 'creator') {
-        setStatus('Creator access');
+        setStatus(t('auth.creatorAccess'));
       } else if (session.accessLevel === 'oracle') {
-        setStatus('Oracle access');
+        setStatus(t('auth.oracleAccess'));
       } else if (session.accessLevel === 'initiate') {
-        setStatus('Initiate access');
+        setStatus(t('auth.initiateAccess'));
       } else {
-        setStatus('No paid tier');
+        setStatus(t('auth.noPaidTier'));
       }
-      if (signIn) signIn.textContent = 'Refresh Links';
+      if (signIn) signIn.textContent = t('auth.refreshLinks');
       if (signOut) signOut.hidden = false;
       renderBuilds();
       return;
     }
 
-    setStatus('Check access');
-    if (signIn) signIn.textContent = 'Sign in with Patreon';
+    setStatus(t('auth.checkAccess'));
+    if (signIn) signIn.textContent = t('auth.signIn');
     if (signOut) signOut.hidden = true;
     renderBuilds();
   }
@@ -523,7 +774,7 @@
   function checkSession() {
     if (!apiBase()) {
       updateSession(null);
-      showWarning('Downloads unavailable.');
+      showWarning(t('notice.downloadsUnavailable'));
       return Promise.resolve();
     }
 
@@ -561,20 +812,20 @@
         if (err && err.name === 'AbortError') {
           updateSession(null);
           showWarning(isLocalApiBase()
-            ? 'Local Worker is not responding.'
-            : 'Downloads are taking longer than expected.');
+            ? t('notice.localWorkerDown')
+            : t('notice.downloadsSlow'));
         } else if (err && err.message === 'Failed to fetch') {
           updateSession(null);
-          showWarning('Could not reach downloads.');
+          showWarning(t('notice.downloadsUnreachable'));
         } else if (err && err.status === 401) {
           updateSession(null);
-          showInfo('Session expired. Sign in again.');
+          showInfo(t('notice.sessionExpired'));
         } else if (err && err.status === 403) {
           renderBuilds();
           clearNotice();
         } else {
           updateSession(null);
-          showError('Could not verify access.');
+          showError(t('notice.verifyFailed'));
         }
       });
   }
@@ -586,12 +837,12 @@
     function beginPatreonSignIn() {
       trackEvent(isSignedIn() ? 'links_refresh_click' : 'patreon_sign_in_click');
       if (!apiBase()) {
-        showWarning('Downloads unavailable.');
+        showWarning(t('notice.downloadsUnavailable'));
         trackEvent('patreon_sign_in_unavailable', { reason: 'missing_api_base' });
         return;
       }
       if (signIn) signIn.disabled = true;
-      setStatus('Checking...');
+      setStatus(t('auth.checking'));
       fetchJson(apiUrl('/health'), { timeoutMs: 5000 })
         .then(function () {
           trackEvent(isSignedIn() ? 'links_refresh_health_ok' : 'patreon_sign_in_health_ok');
@@ -599,13 +850,13 @@
         })
         .catch(function () {
           if (signIn) signIn.disabled = false;
-          setStatus('Check access');
+          setStatus(t('auth.checkAccess'));
           trackEvent(isSignedIn() ? 'links_refresh_failed' : 'patreon_sign_in_failed', {
             reason: isLocalApiBase() ? 'local_worker_unreachable' : 'downloads_unreachable'
           });
           showWarning(isLocalApiBase()
-            ? 'Local Worker is not responding.'
-            : 'Downloads are not responding.');
+            ? t('notice.localWorkerDown')
+            : t('notice.notResponding'));
         });
     }
 
@@ -651,11 +902,11 @@
         );
         if (popup) {
           popup.focus();
-          setStatus('Checkout opened');
-          showInfo('Return here and refresh links.');
+          setStatus(t('auth.checkoutOpened'));
+          showInfo(t('notice.returnRefresh'));
           trackEvent('patreon_checkout_popup_opened');
         } else {
-          showInfo('Return here and refresh links.');
+          showInfo(t('notice.returnRefresh'));
           trackEvent('patreon_checkout_popup_blocked');
           window.location.href = link.href;
         }
@@ -667,7 +918,7 @@
         var signedLink = linksById[buildId];
         if (signedLink && signedLink.expiresAt && signedLink.expiresAt <= Date.now() + 5000) {
           event.preventDefault();
-          showWarning('Refreshing expired link.');
+          showWarning(t('notice.refreshingExpired'));
           trackEvent('download_click_expired_link', buildEventParams(build));
           checkSession();
           return;
@@ -680,7 +931,7 @@
 
       if (link.classList.contains('download-link--locked')) {
         trackEvent('locked_download_click', {
-        link_url: link.href,
+          link_url: link.href,
           is_checkout_popup: link.getAttribute('data-checkout-popup') === 'true'
         });
       }
@@ -688,6 +939,19 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    currentLang = detectLanguage();
+    applyLanguage(currentLang);
+    document.querySelectorAll('.lang-btn').forEach(function (button) {
+      button.addEventListener('click', function () {
+        var lang = button.getAttribute('data-lang') || 'en';
+        if (!STRINGS[lang]) lang = 'en';
+        try {
+          localStorage.setItem('fotLanguage', lang);
+        } catch (e) {}
+        applyLanguage(lang);
+      });
+    });
+
     fetch(configUrl(), { credentials: 'same-origin', cache: 'no-cache' })
       .then(function (res) {
         if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -695,8 +959,9 @@
       })
       .then(function (data) {
         config = data;
-        qs('[data-download-title]').textContent = data.title || 'Downloads';
-        qs('[data-download-subtitle]').textContent = data.subtitle || '';
+        applyLanguage(currentLang);
+        qs('[data-download-title]').textContent = localized(data, 'title') || 'Downloads';
+        qs('[data-download-subtitle]').textContent = localized(data, 'subtitle') || '';
         updateTiers(data.tiers || []);
         renderBuilds();
         initActions();
@@ -709,7 +974,7 @@
         return checkSession();
       })
       .catch(function () {
-        showError('Could not load this page.');
+        showError(t('notice.pageLoadFailed'));
       });
   });
 })();

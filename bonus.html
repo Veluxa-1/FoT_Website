@@ -31,11 +31,11 @@
       <h1><a href="/">Futa on <span>Top</span></a></h1>
       <nav aria-label="Primary">
         <ul>
-          <li><a href="/" class="nav-hide-md">Games</a></li>
-          <li><a href="/#work" class="nav-hide-md">Art</a></li>
+          <li><a href="/" class="nav-hide-md" data-i18n="nav.games">Games</a></li>
+          <li><a href="/#work" class="nav-hide-md" data-i18n="nav.art">Art</a></li>
           <li><a href="/#throxxa" class="nav-hide-md nav-throxxa-only">Throxxa</a></li>
-          <li><a href="/#free" class="nav-hide-md">News</a></li>
-          <li><a href="/bonus.html" class="nav-hide-md" aria-current="page">Bonus</a></li>
+          <li><a href="/#free" class="nav-hide-md" data-i18n="nav.news">News</a></li>
+          <li><a href="/bonus.html" class="nav-hide-md" aria-current="page" data-i18n="nav.bonus">Bonus</a></li>
           <li class="nav-lang" aria-label="Language selector">
             <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true" title="English" aria-label="English"><span class="lang-flag lang-flag--us" aria-hidden="true"></span></button>
             <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false" title="中文" aria-label="中文"><span class="lang-flag lang-flag--cn" aria-hidden="true"></span></button>
@@ -60,7 +60,7 @@
       <main class="download-main">
         <section class="download-hero bonus-hero" aria-labelledby="downloads-title">
           <div class="bonus-hero__copy">
-            <p class="download-kicker">Patron Bonus</p>
+            <p class="download-kicker" data-i18n="bonus.kicker">Patron Bonus</p>
             <h1 id="downloads-title" class="download-title" data-download-title>Patron Bonus</h1>
             <p class="download-subtitle" data-download-subtitle>15 images + 2 animations</p>
 
@@ -68,13 +68,13 @@
               <p class="auth-panel__status" data-auth-status>Check access</p>
               <div class="auth-panel__actions">
                 <button class="download-button" type="button" data-sign-in>Sign in with Patreon</button>
-                <button class="download-button download-button--ghost" type="button" data-sign-out hidden>Sign out</button>
+                <button class="download-button download-button--ghost" type="button" data-sign-out data-i18n="auth.signOut" hidden>Sign out</button>
               </div>
             </aside>
 
             <p class="download-error" data-download-error role="status"></p>
 
-            <section class="download-board" aria-label="Available bonus files">
+            <section class="download-board" aria-label="Available bonus files" data-i18n-aria-label="bonus.availableFiles">
               <div class="download-table" data-download-table role="table"></div>
             </section>
           </div>
@@ -86,6 +86,6 @@
 </main>
     </div>
     <p id="checkout-return-note" hidden>After Patreon checkout, return to this page and refresh links.</p>
-    <script src="assets/js/downloads.js?v=20260927s" defer></script>
+    <script src="assets/js/downloads.js?v=20260927t" defer></script>
   </body>
 </html>

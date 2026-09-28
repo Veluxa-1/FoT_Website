@@ -2,6 +2,20 @@
   "updated": "2026-09-27",
   "title": "Professor Throxxa Wallpapers",
   "subtitle": "15 images + 2 animations",
+  "translations": {
+    "zh": {
+      "title": "Professor Throxxa 壁纸",
+      "subtitle": "15 张图片 + 2 个动画"
+    },
+    "ru": {
+      "title": "Обои Professor Throxxa",
+      "subtitle": "15 изображений + 2 анимации"
+    },
+    "fr": {
+      "title": "Fonds d’écran Professor Throxxa",
+      "subtitle": "15 images + 2 animations"
+    }
+  },
   "patreonUrl": "https://www.patreon.com/c/futaontop",
   "apiBase": "https://downloads.futaontop.com",
   "tiers": [
@@ -13,6 +27,26 @@
       "summary": "",
       "joinLabel": "Unlock Bonus",
       "upgradeLabel": "Unlock Bonus",
+      "translations": {
+        "zh": {
+          "title": "下载",
+          "eyebrow": "赞助者权限",
+          "joinLabel": "解锁奖励",
+          "upgradeLabel": "解锁奖励"
+        },
+        "ru": {
+          "title": "Скачать",
+          "eyebrow": "Доступ патрона",
+          "joinLabel": "Открыть бонус",
+          "upgradeLabel": "Открыть бонус"
+        },
+        "fr": {
+          "title": "Télécharger",
+          "eyebrow": "Accès Patreon",
+          "joinLabel": "Débloquer le bonus",
+          "upgradeLabel": "Débloquer le bonus"
+        }
+      },
       "joinUrl": "https://www.patreon.com/checkout/futaontop?rid=25262471",
       "checkoutPopup": true,
       "minEntitledAmountCents": 500
@@ -27,6 +61,23 @@
       "os": "Bonus",
       "type": "15 images + 2 animations",
       "access": "Initiate+",
+      "translations": {
+        "zh": {
+          "name": "壁纸包",
+          "os": "奖励",
+          "type": "15 张图片 + 2 个动画"
+        },
+        "ru": {
+          "name": "Набор обоев",
+          "os": "Бонус",
+          "type": "15 изображений + 2 анимации"
+        },
+        "fr": {
+          "name": "Pack de fonds d’écran",
+          "os": "Bonus",
+          "type": "15 images + 2 animations"
+        }
+      },
       "updated": "2026-09-27"
     }
   ]
