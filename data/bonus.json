@@ -1,0 +1,33 @@
+{
+  "updated": "2026-09-27",
+  "title": "Professor Throxxa Wallpapers",
+  "subtitle": "15 images + 2 animations",
+  "patreonUrl": "https://www.patreon.com/c/futaontop",
+  "apiBase": "https://downloads.futaontop.com",
+  "tiers": [
+    {
+      "id": "bonus-access",
+      "title": "Download",
+      "eyebrow": "Patron access",
+      "price": "",
+      "summary": "",
+      "joinLabel": "Unlock Bonus",
+      "upgradeLabel": "Unlock Bonus",
+      "joinUrl": "https://www.patreon.com/checkout/futaontop?rid=25262471",
+      "checkoutPopup": true,
+      "minEntitledAmountCents": 500
+    }
+  ],
+  "builds": [
+    {
+      "id": "professor-throxxa-wallpapers",
+      "tier": "bonus-access",
+      "name": "Wallpaper Pack",
+      "size": "77 MB",
+      "os": "Bonus",
+      "type": "15 images + 2 animations",
+      "access": "Initiate+",
+      "updated": "2026-09-27"
+    }
+  ]
+}

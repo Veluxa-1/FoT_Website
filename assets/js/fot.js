@@ -1086,6 +1086,11 @@
     function showAgeModal() {
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('age-locked');
+      sendAnalyticsEvent('age_gate_shown', {
+        send_to: window.FOT_GA_ID,
+        gate_name: 'age_verification',
+        transport_type: 'beacon'
+      });
     }
 
     function hideAgeModal() {
@@ -1102,6 +1107,12 @@
 
       if (accept) {
         accept.addEventListener('click', function () {
+          sendAnalyticsEvent('age_gate_accept_click', {
+            send_to: window.FOT_GA_ID,
+            gate_name: 'age_verification',
+            gate_result: 'accepted',
+            transport_type: 'beacon'
+          });
           localStorage.setItem('ageConfirmed', 'yes');
           hideAgeModal();
         });
@@ -1109,6 +1120,12 @@
 
       if (decline) {
         decline.addEventListener('click', function () {
+          sendAnalyticsEvent('age_gate_decline_click', {
+            send_to: window.FOT_GA_ID,
+            gate_name: 'age_verification',
+            gate_result: 'declined',
+            transport_type: 'beacon'
+          });
           window.location.href = 'https://x.com/Futa_on_Top';
         });
       }
@@ -1116,6 +1133,12 @@
       document.addEventListener('keydown', function (event) {
         if (event.key !== 'Escape') return;
         if (modal.getAttribute('aria-hidden') === 'false') {
+          sendAnalyticsEvent('age_gate_decline_click', {
+            send_to: window.FOT_GA_ID,
+            gate_name: 'age_verification',
+            gate_result: 'escape_key',
+            transport_type: 'beacon'
+          });
           window.location.href = 'https://x.com/Futa_on_Top';
         }
       });
@@ -1225,6 +1248,16 @@
       var player = button.closest('.animation-player');
       var card = button.closest('.animation-card');
       if (!player || player.querySelector('iframe')) return;
+
+      var animationIndex = qsa('.animation-card', grid).indexOf(card);
+      sendAnalyticsEvent('animation_play_click', {
+        send_to: window.FOT_GA_ID,
+        animation_title: button.getAttribute('data-animation-title') || 'Animation preview',
+        animation_index: animationIndex >= 0 ? animationIndex + 1 : undefined,
+        animation_embed: embed,
+        click_section: 'work',
+        transport_type: 'beacon'
+      });
 
       var iframe = document.createElement('iframe');
       iframe.src = embed;
@@ -1439,6 +1472,14 @@
     qsa('[data-vb-page]').forEach(function (el) {
       el.addEventListener('click', function () {
         var page = Number(el.getAttribute('data-vb-page'));
+        sendAnalyticsEvent('vowbound_page_click', {
+          send_to: window.FOT_GA_ID,
+          vowbound_page: page,
+          click_text: analyticsLinkText(el),
+          click_section: 'throxxa',
+          click_context: el.closest('.vb-tabs') ? 'tab' : 'inline_button',
+          transport_type: 'beacon'
+        });
         goTo(page);
         if (!el.closest('.vb-tabs')) {
           root.closest('.throxxa-section').scrollIntoView({ block: 'start' });
@@ -1476,6 +1517,26 @@
     return section.tagName ? section.tagName.toLowerCase() : 'unknown';
   }
 
+  function analyticsUrlDetails(link) {
+    try {
+      var url = new URL(link.getAttribute('href'), window.location.href);
+      return {
+        link_url: url.href,
+        link_domain: url.hostname,
+        outbound_destination: /^https?:$/.test(url.protocol) ? analyticsDestinationFor(url) : 'internal'
+      };
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function analyticsPostTitle(link) {
+    var card = link.closest('.post-card');
+    if (!card) return '';
+    var title = qs('h3', card);
+    return title ? analyticsLinkText(title) : '';
+  }
+
   function sendAnalyticsEvent(eventName, payload) {
     if (window.FOT_GA_DISABLED) {
       if (window.FOT_GA_DEBUG && window.console && window.console.info) {
@@ -1493,9 +1554,69 @@
     if (window.__fotAnalyticsEventsReady) return;
     window.__fotAnalyticsEventsReady = true;
 
+    var vowbound = qs('#throxxa');
+    if (vowbound && 'IntersectionObserver' in window) {
+      var sawVowbound = false;
+      var vowboundObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (sawVowbound || !entry.isIntersecting) return;
+          sawVowbound = true;
+          sendAnalyticsEvent('vowbound_section_view', {
+            send_to: window.FOT_GA_ID,
+            section_name: 'throxxa_vowbound',
+            transport_type: 'beacon'
+          });
+          vowboundObserver.disconnect();
+        });
+      }, { threshold: 0.35 });
+      vowboundObserver.observe(vowbound);
+    }
+
     document.addEventListener('click', function (event) {
       var source = event.target || event.srcElement;
       if (!source || !source.closest) return;
+
+      var nsfwPreviewLink = source.closest('.intro-tease[href="#work"], a[href="#work"][aria-label*="NSFW"]');
+      if (nsfwPreviewLink) {
+        sendAnalyticsEvent('nsfw_previews_click', {
+          send_to: window.FOT_GA_ID,
+          click_text: analyticsLinkText(nsfwPreviewLink),
+          click_section: analyticsSectionFor(nsfwPreviewLink),
+          target_section: 'work',
+          transport_type: 'beacon'
+        });
+      }
+
+      var newsLink = source.closest('#free .post-card a[href]');
+      if (newsLink) {
+        sendAnalyticsEvent('news_post_click', Object.assign({
+          send_to: window.FOT_GA_ID,
+          post_title: analyticsPostTitle(newsLink),
+          click_text: analyticsLinkText(newsLink),
+          click_section: 'free',
+          transport_type: 'beacon'
+        }, analyticsUrlDetails(newsLink)));
+      }
+
+      var newsCta = source.closest('#free .posts-actions a[href]');
+      if (newsCta) {
+        sendAnalyticsEvent('news_section_cta_click', Object.assign({
+          send_to: window.FOT_GA_ID,
+          click_text: analyticsLinkText(newsCta),
+          click_section: 'free',
+          transport_type: 'beacon'
+        }, analyticsUrlDetails(newsCta)));
+      }
+
+      var vowboundCta = source.closest('#throxxa a[href]');
+      if (vowboundCta) {
+        sendAnalyticsEvent('vowbound_cta_click', Object.assign({
+          send_to: window.FOT_GA_ID,
+          click_text: analyticsLinkText(vowboundCta),
+          click_section: 'throxxa',
+          transport_type: 'beacon'
+        }, analyticsUrlDetails(vowboundCta)));
+      }
 
       var link = source.closest('a[href]');
       if (!link) return;

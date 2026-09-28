@@ -1,0 +1,22 @@
+# Local/private workspaces
+_private/
+backend/
+
+# Editor and tool state
+.vscode/
+.wrangler/
+**/.wrangler/
+node_modules/
+
+# Secrets and local environment files
+.env
+.env.*
+**/.env
+**/.env.*
+**/.dev.vars
+**/.dev.vars.*
+*_PRIVATE.md
+
+# Local Cloudflare deployment configs
+**/wrangler.toml
+**/wrangler.*.toml
