@@ -60,6 +60,7 @@
         'nav.art': 'Art',
         'nav.throxxa': 'Throxxa',
         'nav.news': 'News',
+        'nav.bonus': 'Bonus',
         'nav.steam': 'Steam',
         'nav.patreon': 'Patreon',
         'intro.kicker': '18+ futa porn games & visual novels',
@@ -146,7 +147,7 @@
       htmlLang: 'zh-CN',
       s: {
         'age.badge': '18+ 成人内容', 'age.title': '你已满 18 岁吗？', 'age.text': '本网站包含露骨成人游戏与美术。请确认你是成年人后进入。', 'age.accept': '是，我已满 18 岁', 'age.decline': '否，离开',
-        'nav.games': '游戏', 'nav.art': '美术', 'nav.throxxa': 'Throxxa', 'nav.news': '新闻', 'nav.steam': 'Steam', 'nav.patreon': 'Patreon',
+        'nav.games': '游戏', 'nav.art': '美术', 'nav.throxxa': 'Throxxa', 'nav.news': '新闻', 'nav.bonus': '奖励', 'nav.steam': 'Steam', 'nav.patreon': 'Patreon',
         'intro.kicker': '18+ 扶她成人色情游戏与视觉小说', 'intro.title': '选择你的世界', 'intro.sub': 'Futa Heim 在 Patreon | Futa on Top 在 Steam [免费试玩]',
         'card.futaheim.badge': 'Patreon 更新中', 'card.futaheim.desc': '🌏 神圣扶她女王统治的国度 👑 被征服的男娘跪地孕育强壮扶她继承人 🦠💦', 'card.futaheim.play': '立即游玩',
         'card.fot.badge': '已上架 Steam | 免费试玩', 'card.fot.desc': '💕 反乌托邦扶她支配视觉小说 ⚔️ 破碎而饥渴的男性跪拜扶她代码 🧬🔥', 'card.fot.play': '免费试玩', 'card.fot.buy': '在 Steam 购买',
@@ -162,7 +163,7 @@
       htmlLang: 'ru',
       s: {
         'age.badge': '18+ контент для взрослых', 'age.title': 'Вам уже есть 18?', 'age.text': 'На сайте есть откровенные футa-игры и арты. Подтвердите возраст, чтобы войти.', 'age.accept': 'Да, мне есть 18+', 'age.decline': 'Нет, уйти',
-        'nav.games': 'Игры', 'nav.art': 'Арт', 'nav.throxxa': 'Throxxa', 'nav.news': 'Новости', 'nav.steam': 'Steam', 'nav.patreon': 'Patreon',
+        'nav.games': 'Игры', 'nav.art': 'Арт', 'nav.throxxa': 'Throxxa', 'nav.news': 'Новости', 'nav.bonus': 'Бонус', 'nav.steam': 'Steam', 'nav.patreon': 'Patreon',
         'intro.kicker': '18+ футa-порноигры и визуальные новеллы', 'intro.title': 'Выбери свой мир', 'intro.sub': 'Futa Heim на Patreon | Futa on Top в Steam [бесплатное демо]',
         'card.futaheim.badge': 'На Patreon', 'card.futaheim.desc': '🌏 Царство божественных футa-королев 👑 где покорённые фембои на коленях рожают наследников 🦠💦', 'card.futaheim.play': 'Играть сейчас',
         'card.fot.badge': 'В Steam | Бесплатное демо', 'card.fot.desc': '💕 Дистопичная футa-дом визуальная новелла ⚔️ где сломленные мужчины поклоняются футa-коду на коленях 🧬🔥', 'card.fot.play': 'Играть в демо', 'card.fot.buy': 'Купить в Steam',
@@ -178,7 +179,7 @@
       htmlLang: 'fr',
       s: {
         'age.badge': 'Contenu adulte 18+', 'age.title': 'As-tu 18 ans ou plus ?', 'age.text': 'Jeux et art futa explicites. Confirme que tu es adulte pour entrer.', 'age.accept': "Oui - j'ai 18+", 'age.decline': 'Non - partir',
-        'nav.games': 'Jeux', 'nav.art': 'Art', 'nav.throxxa': 'Throxxa', 'nav.news': 'News', 'nav.steam': 'Steam', 'nav.patreon': 'Patreon',
+        'nav.games': 'Jeux', 'nav.art': 'Art', 'nav.throxxa': 'Throxxa', 'nav.news': 'Actus', 'nav.bonus': 'Bonus', 'nav.steam': 'Steam', 'nav.patreon': 'Patreon',
         'intro.kicker': 'Jeux porno futa et visual novels 18+', 'intro.title': 'Choisis ton monde', 'intro.sub': 'Futa Heim est sur Patreon | Futa on Top est sur Steam [démo gratuite]',
         'card.futaheim.badge': 'Sur Patreon', 'card.futaheim.desc': '🌏 Un royaume de reines futa divines 👑 où des femboys conquis donnent naissance à des héritiers futa à genoux 🦠💦', 'card.futaheim.play': 'Jouer maintenant',
         'card.fot.badge': 'Sur Steam | Démo gratuite', 'card.fot.desc': '💕 Un visual novel dystopique futa-dom ⚔️ où des mâles brisés adorent le code futa à genoux 🧬🔥', 'card.fot.play': 'Jouer à la démo', 'card.fot.buy': 'Acheter sur Steam',
@@ -205,7 +206,7 @@
 
   var I18N_BINDINGS = [
     ['#age-modal .age-modal__badge', 'age.badge'], ['#age-title', 'age.title'], ['#age-modal p', 'age.text'], ['#age-accept', 'age.accept'], ['#age-decline', 'age.decline'],
-    ['#header a[href="#intro"].nav-hide-md', 'nav.games'], ['#header a[href="#work"].nav-hide-md', 'nav.art'], ['#header a[href="#throxxa"]', 'nav.throxxa'], ['#header a[href="#free"]', 'nav.news'], ['#header .is-cta-steam .nav-text', 'nav.steam'], ['#header .is-cta .nav-text', 'nav.patreon'],
+    ['#header a[href="#intro"].nav-hide-md', 'nav.games'], ['#header a[href="#work"].nav-hide-md', 'nav.art'], ['#header a[href="#throxxa"]', 'nav.throxxa'], ['#header a[href="#free"]', 'nav.news'], ['#header a[href="/bonus.html"]', 'nav.bonus'], ['#header .is-cta-steam .nav-text', 'nav.steam'], ['#header .is-cta .nav-text', 'nav.patreon'],
     ['#intro .intro-header .fot-kicker', 'intro.kicker'], ['#intro .intro-header h2', 'intro.title'], ['#intro .intro-sub', 'intro.sub'],
     ['#game-futaheim .game-card__badge', 'card.futaheim.badge'], ['#game-futaheim .game-card__desc', 'card.futaheim.desc'], ['#game-futaheim .btn-play', 'card.futaheim.play'],
     ['#game-futa-on-top .game-card__badge', 'card.fot.badge'], ['#game-futa-on-top .game-card__desc', 'card.fot.desc'], ['#game-futa-on-top .btn-play', 'card.fot.play'], ['#game-futa-on-top .btn-steam span', 'card.fot.buy'],
@@ -913,6 +914,14 @@
         if (binding[2]) el.innerHTML = t(binding[1]);
         else el.textContent = t(binding[1]);
       });
+    });
+
+    qsa('[data-i18n]').forEach(function (el) {
+      el.textContent = t(el.getAttribute('data-i18n'));
+    });
+
+    qsa('[data-i18n-aria-label]').forEach(function (el) {
+      el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria-label')));
     });
 
     applyVowboundTranslations();
