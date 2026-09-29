@@ -206,7 +206,7 @@
 
   var I18N_BINDINGS = [
     ['#age-modal .age-modal__badge', 'age.badge'], ['#age-title', 'age.title'], ['#age-modal p', 'age.text'], ['#age-accept', 'age.accept'], ['#age-decline', 'age.decline'],
-    ['#header a[href="#intro"].nav-hide-md', 'nav.games'], ['#header a[href="#work"].nav-hide-md', 'nav.art'], ['#header a[href="#throxxa"]', 'nav.throxxa'], ['#header a[href="#free"]', 'nav.news'], ['#header a[href="/bonus.html"]', 'nav.bonus'], ['#header .is-cta-steam .nav-text', 'nav.steam'], ['#header .is-cta .nav-text', 'nav.patreon'],
+    ['#header a[href="#intro"].nav-hide-md', 'nav.games'], ['#header a[href="#work"].nav-hide-md', 'nav.art'], ['#header a[href="#throxxa"]', 'nav.throxxa'], ['#header a[href="#free"]', 'nav.news'], ['#header a[href="/bonus/"]', 'nav.bonus'], ['#header .is-cta-steam .nav-text', 'nav.steam'], ['#header .is-cta .nav-text', 'nav.patreon'],
     ['#intro .intro-header .fot-kicker', 'intro.kicker'], ['#intro .intro-header h2', 'intro.title'], ['#intro .intro-sub', 'intro.sub'],
     ['#game-futaheim .game-card__badge', 'card.futaheim.badge'], ['#game-futaheim .game-card__desc', 'card.futaheim.desc'], ['#game-futaheim .btn-play', 'card.futaheim.play'],
     ['#game-futa-on-top .game-card__badge', 'card.fot.badge'], ['#game-futa-on-top .game-card__desc', 'card.fot.desc'], ['#game-futa-on-top .btn-play', 'card.fot.play'], ['#game-futa-on-top .btn-steam span', 'card.fot.buy'],
@@ -1670,6 +1670,37 @@
     window.setTimeout(callback, 700);
   }
 
+  function isMobilePerfViewport() {
+    return window.matchMedia && window.matchMedia('(max-width: 760px)').matches;
+  }
+
+  function runWhenNear(selector, callback) {
+    var target = qs(selector);
+    if (!target) return;
+
+    if (!isMobilePerfViewport()) {
+      scheduleNonCriticalWork(callback);
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      window.setTimeout(callback, 1800);
+      return;
+    }
+
+    var hasRun = false;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (hasRun || !entry.isIntersecting) return;
+        hasRun = true;
+        observer.disconnect();
+        callback();
+      });
+    }, { rootMargin: '520px 0px', threshold: 0.01 });
+
+    observer.observe(target);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initLanguageSwitcher();
     initAgeGate();
@@ -1679,9 +1710,7 @@
     markExternal();
     initAnalyticsEvents();
 
-    scheduleNonCriticalWork(function () {
-      loadRedgifs();
-      loadFreePosts();
-    });
+    runWhenNear('#work', loadRedgifs);
+    runWhenNear('#free', loadFreePosts);
   });
 })();

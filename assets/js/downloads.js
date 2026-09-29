@@ -10,7 +10,7 @@
     en: {
       htmlLang: 'en',
       nav: { games: 'Games', art: 'Art', news: 'News', bonus: 'Bonus' },
-      bonus: { kicker: 'Patron Bonus', availableFiles: 'Available bonus files' },
+      bonus: { kicker: 'Patron Bonus', availableFiles: 'Available bonus files', images: '15 images', animations: '2 animations' },
       auth: {
         checkAccess: 'Check access',
         checking: 'Checking...',
@@ -57,7 +57,7 @@
     zh: {
       htmlLang: 'zh-Hans',
       nav: { games: '游戏', art: '美术', news: '新闻', bonus: '奖励' },
-      bonus: { kicker: '赞助者奖励', availableFiles: '可下载的奖励文件' },
+      bonus: { kicker: '赞助者奖励', availableFiles: '可下载的奖励文件', images: '15 张图片', animations: '2 个动画' },
       auth: {
         checkAccess: '检查权限',
         checking: '检查中...',
@@ -104,7 +104,7 @@
     ru: {
       htmlLang: 'ru',
       nav: { games: 'Игры', art: 'Арт', news: 'Новости', bonus: 'Бонус' },
-      bonus: { kicker: 'Бонус для патронов', availableFiles: 'Доступные бонусные файлы' },
+      bonus: { kicker: 'Бонус для патронов', availableFiles: 'Доступные бонусные файлы', images: '15 изображений', animations: '2 анимации' },
       auth: {
         checkAccess: 'Проверить доступ',
         checking: 'Проверяем...',
@@ -151,7 +151,7 @@
     fr: {
       htmlLang: 'fr',
       nav: { games: 'Jeux', art: 'Art', news: 'Actus', bonus: 'Bonus' },
-      bonus: { kicker: 'Bonus Patreon', availableFiles: 'Fichiers bonus disponibles' },
+      bonus: { kicker: 'Bonus Patreon', availableFiles: 'Fichiers bonus disponibles', images: '15 images', animations: '2 animations' },
       auth: {
         checkAccess: 'Vérifier l’accès',
         checking: 'Vérification...',
@@ -375,6 +375,14 @@
     error.textContent = text || '';
     error.classList.toggle('is-visible', Boolean(text));
     error.setAttribute('data-notice-kind', kind || 'error');
+    if (document.body) {
+      document.body.classList.toggle('has-download-notice', Boolean(text));
+      if (text) {
+        document.body.setAttribute('data-notice-kind', kind || 'error');
+      } else {
+        document.body.removeAttribute('data-notice-kind');
+      }
+    }
   }
 
   function showError(text) {
@@ -520,6 +528,18 @@
     return 0;
   }
 
+  function syncPageState() {
+    if (!document.body) return;
+    var signedIn = isSignedIn();
+    var level = String((sessionState && sessionState.accessLevel) || 'none').toLowerCase();
+    var hasLinks = Object.keys(linksById || {}).length > 0;
+    document.body.classList.toggle('is-signed-in', signedIn);
+    document.body.classList.toggle('is-signed-out', !signedIn);
+    document.body.classList.toggle('has-download-links', hasLinks);
+    document.body.classList.toggle('has-no-download-links', !hasLinks);
+    document.body.setAttribute('data-access-level', level);
+  }
+
   function requiredRankForTier(tier) {
     var id = String((tier && tier.id) || '').toLowerCase();
     var title = String((tier && tier.title) || '').toLowerCase();
@@ -594,6 +614,7 @@
     table.innerHTML = groupedBuilds().map(function (group) {
       return group.id === 'test-mode' ? renderDiagnosticsGroup(group) : renderTierGroup(group);
     }).join('');
+    syncPageState();
   }
 
   function groupedBuilds() {
@@ -737,6 +758,7 @@
       if (signIn) signIn.textContent = t('auth.refreshLinks');
       if (signOut) signOut.hidden = false;
       renderBuilds();
+      syncPageState();
       return;
     }
 
@@ -744,6 +766,7 @@
     if (signIn) signIn.textContent = t('auth.signIn');
     if (signOut) signOut.hidden = true;
     renderBuilds();
+    syncPageState();
   }
 
   function fetchJson(url, options) {
@@ -806,6 +829,7 @@
           link_count: payload.links.length
         });
         renderBuilds();
+        syncPageState();
         clearNotice();
       })
       .catch(function (err) {

@@ -1425,3 +1425,385 @@ a { color: inherit; }
     min-width: 0;
   }
 }
+
+/* Integrated patron bonus page */
+body.downloads-page.bonus-page {
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(232, 184, 74, 0.11), transparent 24rem),
+    radial-gradient(circle at 84% 12%, rgba(255, 66, 77, 0.11), transparent 28rem),
+    linear-gradient(180deg, #09090d 0%, #07070a 54%, #050507 100%) !important;
+  overflow-x: hidden;
+}
+
+.bonus-bg {
+  position: fixed;
+  z-index: -1;
+  inset: var(--fot-nav-h) 0 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: #07070a;
+}
+
+.bonus-bg::before,
+.bonus-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.bonus-bg::before {
+  inset: -10vh -8vw;
+  background:
+    linear-gradient(90deg, rgba(7, 7, 10, 0.84) 0%, rgba(7, 7, 10, 0.5) 34%, rgba(7, 7, 10, 0.9) 70%, #07070a 100%),
+    url("../../images/bonus/professor-throxxa-bonus.webp") left 42% center / min(54vw, 44rem) auto no-repeat;
+  opacity: 0.42;
+  filter: saturate(0.86) contrast(1.05);
+}
+
+.bonus-bg::after {
+  background:
+    linear-gradient(180deg, rgba(7, 7, 10, 0.12) 0%, rgba(7, 7, 10, 0.88) 82%, #07070a 100%),
+    linear-gradient(90deg, rgba(7, 7, 10, 0.74) 0%, rgba(7, 7, 10, 0.22) 42%, rgba(7, 7, 10, 0.84) 68%, #07070a 100%);
+}
+
+.bonus-page .download-shell {
+  width: min(100% - clamp(1.25rem, 5vw, 5.5rem), 1380px);
+}
+
+.bonus-page .download-main {
+  min-height: auto;
+  padding: 0;
+}
+
+.bonus-page .bonus-hero {
+  grid-template-columns: minmax(20rem, 0.92fr) minmax(22rem, 0.78fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 5.5rem);
+  min-height: auto;
+  padding: clamp(1.6rem, 4vh, 3rem) 0 clamp(2rem, 6vh, 4.5rem);
+}
+
+.bonus-page .bonus-hero__media {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+  width: min(100%, 40rem);
+  aspect-ratio: 0.78;
+  max-height: min(78svh, 47rem);
+  border-radius: 1rem;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 30px 82px rgba(0, 0, 0, 0.64), 0 0 0 1px rgba(255, 255, 255, 0.035);
+}
+
+.bonus-page .bonus-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 22%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.22), transparent 42%);
+  pointer-events: none;
+}
+
+.bonus-page .bonus-hero__media img {
+  object-position: center 27%;
+}
+
+.bonus-page .bonus-hero__copy {
+  grid-column: 2;
+  grid-row: 1;
+  width: min(100%, 35rem);
+  padding: 0;
+}
+
+.bonus-page .download-kicker {
+  margin-bottom: 0.55rem;
+}
+
+.bonus-page .download-title {
+  max-width: 9.2em;
+  font-size: clamp(2.35rem, 3.55vw, 4.1rem);
+  letter-spacing: 0.055em;
+}
+
+.bonus-page .download-subtitle {
+  margin-top: 0.78rem;
+  color: rgba(244, 241, 234, 0.8);
+  font-size: clamp(1.02rem, 1.08vw, 1.2rem);
+  font-weight: 900;
+}
+
+.bonus-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bonus-meta li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  padding: 0 0.62rem;
+  color: rgba(244, 241, 234, 0.72);
+  background: rgba(255, 255, 255, 0.045);
+  font-size: 0.74rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.bonus-page .auth-panel {
+  width: 100%;
+  max-width: 35rem;
+  margin-top: 1.35rem;
+  padding: 0;
+}
+
+.bonus-page .auth-panel__status {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0 0 0.55rem;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  color: rgba(244, 241, 234, 0.72);
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
+.bonus-page .auth-panel__actions {
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.65rem;
+}
+
+.bonus-page .download-button {
+  min-height: 3.15rem;
+  padding-inline: 1.25rem;
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+}
+
+.bonus-page .download-button--ghost {
+  min-width: 8.6rem;
+}
+
+.bonus-page .download-error {
+  width: 100%;
+  max-width: 35rem;
+  margin-top: 0.7rem;
+  padding: 0.7rem 0.9rem 0.7rem 2.15rem;
+  border-radius: 0.72rem;
+  font-size: 0.84rem;
+  box-shadow: none;
+}
+
+.bonus-page .download-error::before {
+  left: 0.85rem;
+  width: 0.44rem;
+  height: 0.44rem;
+}
+
+.bonus-page .download-board {
+  width: 100%;
+  max-width: 35rem;
+  margin-top: 0.85rem;
+  border-radius: 0.95rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.028)),
+    rgba(18, 16, 22, 0.92);
+}
+
+.bonus-page .download-builds {
+  padding: 0;
+}
+
+.bonus-page .download-build {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon main specs"
+    "icon button button";
+  gap: 0.35rem 0.82rem;
+  padding: 1.15rem;
+}
+
+.bonus-page .download-build__icon {
+  width: 2.1rem;
+  height: 2.1rem;
+}
+
+.bonus-page .download-build__main h3 {
+  font-size: 1.04rem;
+}
+
+.bonus-page .download-build__main p {
+  color: rgba(244, 241, 234, 0.68);
+  font-size: 0.82rem;
+}
+
+.bonus-page .download-build__specs {
+  align-self: start;
+  min-width: 4.25rem;
+  justify-content: end;
+  color: rgba(244, 241, 234, 0.58);
+  font-size: 0.78rem;
+}
+
+.bonus-page .download-build__button {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding-top: 0.82rem;
+}
+
+.bonus-page .download-build__button .download-link {
+  min-height: 2.75rem;
+}
+
+.bonus-page.is-signed-out .download-board {
+  opacity: 0.88;
+}
+
+.bonus-page.has-download-links .download-board {
+  border-color: rgba(126, 200, 122, 0.28);
+  box-shadow: 0 22px 58px rgba(0, 0, 0, 0.42), 0 0 28px rgba(126, 200, 122, 0.06);
+}
+
+.bonus-page.has-download-links .auth-panel__status {
+  color: rgba(215, 245, 207, 0.86);
+}
+
+.bonus-page[data-access-level="none"].is-signed-in .auth-panel__status {
+  color: rgba(255, 231, 174, 0.88);
+}
+
+@media (min-width: 1500px) {
+  .bonus-page .download-shell {
+    width: min(100% - 8rem, 1420px);
+  }
+
+  .bonus-page .bonus-hero {
+    grid-template-columns: minmax(26rem, 0.95fr) minmax(24rem, 0.7fr);
+    gap: clamp(3rem, 5vw, 6rem);
+  }
+
+  .bonus-page .bonus-hero__media {
+    width: min(100%, 43rem);
+  }
+
+  .bonus-page .bonus-hero__copy {
+    width: min(100%, 34rem);
+  }
+
+  .bonus-page .download-title {
+    font-size: clamp(3rem, 3.15vw, 4.25rem);
+  }
+}
+
+@media (max-width: 1120px) {
+  .bonus-page .bonus-hero {
+    grid-template-columns: minmax(18rem, 0.88fr) minmax(20rem, 0.82fr);
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+  }
+
+  .bonus-page .bonus-hero__media {
+    width: min(100%, 34rem);
+  }
+
+  .bonus-page .download-title {
+    font-size: clamp(2.2rem, 4vw, 3.35rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .bonus-bg::before {
+    background:
+      linear-gradient(180deg, rgba(7, 7, 10, 0.42), rgba(7, 7, 10, 0.9) 72%, #07070a 100%),
+      url("../../images/bonus/professor-throxxa-bonus.webp") center top / min(92vw, 36rem) auto no-repeat;
+    opacity: 0.28;
+  }
+
+  .bonus-bg::after {
+    background: linear-gradient(180deg, rgba(7, 7, 10, 0.2), rgba(7, 7, 10, 0.94) 56%, #07070a 100%);
+  }
+
+  .bonus-page .bonus-hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.15rem;
+    min-height: 0;
+    padding: clamp(1.25rem, 4vh, 2.3rem) 0 clamp(2rem, 6vh, 3rem);
+  }
+
+  .bonus-page .bonus-hero__media {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    width: min(100%, 31rem);
+    max-height: min(56svh, 32rem);
+    order: -1;
+  }
+
+  .bonus-page .bonus-hero__copy {
+    grid-column: 1;
+    grid-row: 2;
+    align-items: stretch;
+    width: min(100%, 34rem);
+  }
+
+  .bonus-page .download-kicker {
+    align-self: flex-start;
+  }
+
+  .bonus-page .download-title {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+  }
+}
+
+@media (max-width: 620px) {
+  .bonus-page .download-shell {
+    width: min(100% - 1.1rem, 38rem);
+  }
+
+  .bonus-page .bonus-hero {
+    padding-top: 0.85rem;
+  }
+
+  .bonus-page .bonus-hero__media {
+    width: min(100%, 24rem);
+    max-height: 48svh;
+    border-radius: 0.85rem;
+  }
+
+  .bonus-page .download-title {
+    font-size: clamp(2rem, 12vw, 2.85rem);
+  }
+
+  .bonus-page .auth-panel__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .bonus-page .download-button--ghost {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .bonus-page .download-build {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "icon main"
+      "icon specs"
+      "button button";
+  }
+
+  .bonus-page .download-build__specs {
+    justify-content: start;
+  }
+}

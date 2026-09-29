@@ -17,6 +17,7 @@
  <meta name="msapplication-TileImage" content="/images/brand/icon-192.png">
  <link rel="manifest" href="/site.webmanifest">
  <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
  <meta name="description" content="Official site for Futa on Top and Futa Heim, adult futa porn games and visual novels. Play latest versions. Futa Dom | Futa on Male | Futa on Female | 18+ only." />
  <meta name="author" content="Futa on Top" />
  <meta name="theme-color" content="#07070a" />
@@ -37,8 +38,7 @@
  <link rel="related" href="https://f95zone.to/threads/futaheim-femboy-farm-ch-1-futa-on-top.297391/" />
  <link rel="related" href="https://f95zone.to/threads/futaheim-femboy-farm-dev-thread-chapter-2-is-out.282926/" />
  <meta name="robots" content="index,follow,max-image-preview:large" />
- <!-- Google Analytics 4 -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLE1L6KD3F"></script>
+ <!-- Google Analytics 4. Loaded after first paint so it does not compete with mobile LCP. -->
  <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -49,9 +49,30 @@
   if (window.FOT_GA_DISABLED) {
     window['ga-disable-G-HLE1L6KD3F'] = true;
   }
-  gtag('js', new Date());
+  window.FOT_LOAD_ANALYTICS = function () {
+    if (window.FOT_GA_DISABLED || window.FOT_GA_LOAD_STARTED) return;
+    window.FOT_GA_LOAD_STARTED = true;
+
+    var ga = document.createElement('script');
+    ga.async = true;
+    ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.FOT_GA_ID);
+    document.head.appendChild(ga);
+
+    gtag('js', new Date());
+    gtag('config', window.FOT_GA_ID, { debug_mode: window.FOT_GA_DEBUG });
+  };
   if (!window.FOT_GA_DISABLED) {
-    gtag('config', 'G-HLE1L6KD3F', { debug_mode: window.FOT_GA_DEBUG });
+    if (window.matchMedia && window.matchMedia('(min-width: 761px)').matches) {
+      window.FOT_LOAD_ANALYTICS();
+    } else {
+      window.addEventListener('load', function () {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(window.FOT_LOAD_ANALYTICS, { timeout: 3500 });
+        } else {
+          window.setTimeout(window.FOT_LOAD_ANALYTICS, 1600);
+        }
+      }, { once: true });
+    }
   }
  </script>
  <meta property="og:site_name" content="Futa on Top" />
@@ -364,7 +385,6 @@
   ]
 }
  </script>
- <meta name="viewport" content="width=device-width, initial-scale=1" />
  <link rel="stylesheet" href="assets/css/main.min.css?v=20260918p" />
  <link rel="stylesheet" href="assets/css/fot.min.css?v=20260918p" />
  <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -403,7 +423,7 @@
  <li><a href="#work" class="nav-hide-md" data-i18n="nav.art">Art</a></li>
   <li><a href="#throxxa" class="nav-hide-md nav-throxxa-only" data-i18n="nav.throxxa">Throxxa</a></li>
  <li><a href="#free" class="nav-hide-md" data-i18n="nav.news">News</a></li>
- <li><a href="/bonus.html" class="nav-hide-md" data-i18n="nav.bonus">Bonus</a></li>
+<li><a href="/bonus/" class="nav-hide-md" data-i18n="nav.bonus">Bonus</a></li>
   <li class="nav-lang" aria-label="Language selector">
  <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true" title="English" aria-label="English"><span class="lang-flag lang-flag--us" aria-hidden="true"></span></button>
  <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false" title="中文" aria-label="中文"><span class="lang-flag lang-flag--cn" aria-hidden="true"></span></button>
@@ -436,8 +456,9 @@
  <div class="game-capsule-wrap">
  <span class="game-card__badge game-card__badge--early">On Patreon</span>
  <picture>
- <source srcset="images/capsule-futaheim.webp" type="image/webp">
- <img src="images/capsule-futaheim.jpg" alt="Futa Heim / Futaheim adult visual novel capsule art" class="game-capsule" width="920" height="430" loading="eager" decoding="async" fetchpriority="high" />
+ <source media="(max-width: 760px)" srcset="images/capsule-futaheim-460.webp 1x, images/capsule-futaheim-720.webp 2x" type="image/webp">
+ <source srcset="images/capsule-futaheim-720.webp 720w, images/capsule-futaheim.webp 920w" sizes="(max-width: 1180px) 46vw, 460px" type="image/webp">
+ <img src="images/capsule-futaheim.jpg" alt="Futa Heim / Futaheim adult visual novel capsule art" class="game-capsule" width="920" height="430" loading="eager" decoding="async" />
  </picture>
  </div>
  <div class="game-card__body">
@@ -458,8 +479,9 @@
  <div class="game-capsule-wrap">
  <span class="game-card__badge game-card__badge--free">Out on Steam | Free Demo</span>
  <picture>
- <source srcset="images/capsule-futa-on-top.webp" type="image/webp">
- <img src="images/capsule-futa-on-top.jpg" alt="Futa on Top adult futa porn game capsule art" class="game-capsule" width="920" height="430" loading="eager" decoding="async" fetchpriority="high" />
+ <source media="(max-width: 760px)" srcset="images/capsule-futa-on-top-460.webp 1x, images/capsule-futa-on-top-720.webp 2x" type="image/webp">
+ <source srcset="images/capsule-futa-on-top-720.webp 720w, images/capsule-futa-on-top.webp 920w" sizes="(max-width: 1180px) 46vw, 460px" type="image/webp">
+ <img src="images/capsule-futa-on-top.jpg" alt="Futa on Top adult futa porn game capsule art" class="game-capsule" width="920" height="430" loading="eager" decoding="async" />
  </picture>
  </div>
  <div class="game-card__body">
@@ -533,9 +555,12 @@
 
 					<div class="vb-body">
 						<!-- PAGE 1: Bridecock -->
-						<article class="vb-sheet vb-sheet--bride is-on" id="vb-page-1" data-vb-panel="1">
+						<div class="vb-sheet vb-sheet--bride is-on" id="vb-page-1" data-vb-panel="1">
 							<figure class="vb-shot vb-shot--contain">
-								<img src="images/throxxa/throxxa-01.webp" alt="Mistress Throxxa on the marriage bed in bridal lace" width="1200" height="1588" loading="lazy" decoding="async" />
+								<picture>
+									<source srcset="images/throxxa/throxxa-01-640.webp 640w, images/throxxa/throxxa-01-900.webp 900w, images/throxxa/throxxa-01.webp 1200w" sizes="(max-width: 760px) min(100vw, 640px), (max-width: 1280px) 38vw, 468px" type="image/webp">
+									<img src="images/throxxa/throxxa-01.webp" alt="Mistress Throxxa on the marriage bed in bridal lace" width="1200" height="1588" loading="lazy" decoding="async" />
+								</picture>
 								<figcaption>Veiled | Hard | Offering Nothing but Orders</figcaption>
 							</figure>
 
@@ -593,12 +618,15 @@
 									<button type="button" class="vb-btn vb-btn--gold" data-vb-page="2">Mating Protocol</button>
 								</footer>
 							</div>
-						</article>
+						</div>
 
 						<!-- PAGE 2: Protocol -->
-						<article class="vb-sheet vb-sheet--proto" id="vb-page-2" data-vb-panel="2" hidden>
+						<div class="vb-sheet vb-sheet--proto" id="vb-page-2" data-vb-panel="2" hidden>
 							<figure class="vb-shot vb-shot--contain">
-								<img src="images/throxxa/throxxa-02.webp" alt="Mistress Throxxa stroking her cock" width="1200" height="1588" loading="lazy" decoding="async" />
+								<picture>
+									<source srcset="images/throxxa/throxxa-02-640.webp 640w, images/throxxa/throxxa-02-900.webp 900w, images/throxxa/throxxa-02.webp 1200w" sizes="(max-width: 760px) min(100vw, 640px), (max-width: 1280px) 38vw, 468px" type="image/webp">
+									<img src="images/throxxa/throxxa-02.webp" alt="Mistress Throxxa stroking her cock" width="1200" height="1588" loading="lazy" decoding="async" />
+								</picture>
 								<figcaption>The ring is optional; the collar isn't.</figcaption>
 							</figure>
 
@@ -672,7 +700,7 @@
 									<a class="vb-btn vb-btn--patreon" href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">Offer Ass As Dowry</a>
 								</footer>
 							</div>
-						</article>
+						</div>
 					</div>
 
 					<footer class="vb-foot">
@@ -775,6 +803,6 @@
  <a class="steam" href="https://store.steampowered.com/publisher/futaontop" target="_blank" rel="noopener noreferrer">Steam</a>
  </nav>
 
- <script src="assets/js/fot.js?v=20260927b" defer></script>
+ <script src="assets/js/fot.js?v=20260929a" defer></script>
 	</body>
 </html>
