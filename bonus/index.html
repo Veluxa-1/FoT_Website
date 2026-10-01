@@ -4,6 +4,15 @@
     <title>Patron Bonus - Futa on Top</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      try {
+        if (localStorage.getItem('ageConfirmed') !== 'yes') {
+          document.documentElement.classList.add('age-pending');
+        }
+      } catch (e) {
+        document.documentElement.classList.add('age-pending');
+      }
+    </script>
     <meta name="robots" content="noindex,nofollow" />
     <meta name="description" content="Verified Patron bonus files for Futa on Top supporters." />
     <meta name="theme-color" content="#100d20" />
@@ -14,8 +23,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" onload="this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" /></noscript>
-    <link rel="stylesheet" href="/assets/css/main.min.css?v=20260918p" />
-    <link rel="stylesheet" href="/assets/css/fot.min.css?v=20260918p" />
+    <link rel="stylesheet" href="/assets/css/main.min.css?v=20261001a" />
+    <link rel="stylesheet" href="/assets/css/fot.min.css?v=20261001a" />
     <link rel="stylesheet" href="/assets/css/downloads.css?v=20260929b" />
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -40,16 +49,17 @@
         gtag('config', window.FOT_GA_ID, { debug_mode: window.FOT_GA_DEBUG });
       };
       if (!window.FOT_GA_DISABLED) {
-        if (window.matchMedia && window.matchMedia('(min-width: 761px)').matches) {
+        window.FOT_QUEUE_ANALYTICS = function () {
+          if (window.FOT_GA_LOAD_STARTED) return;
+          window.setTimeout(window.FOT_LOAD_ANALYTICS, 15000);
+        };
+        if (window.FOT_GA_DEBUG) {
           window.FOT_LOAD_ANALYTICS();
         } else {
-          window.addEventListener('load', function () {
-            if ('requestIdleCallback' in window) {
-              window.requestIdleCallback(window.FOT_LOAD_ANALYTICS, { timeout: 3500 });
-            } else {
-              window.setTimeout(window.FOT_LOAD_ANALYTICS, 1600);
-            }
-          }, { once: true });
+          ['pointerdown', 'keydown', 'touchstart'].forEach(function (eventName) {
+            window.addEventListener(eventName, window.FOT_LOAD_ANALYTICS, { once: true, passive: true });
+          });
+          window.addEventListener('load', window.FOT_QUEUE_ANALYTICS, { once: true });
         }
       }
     </script>
@@ -129,7 +139,7 @@
 </main>
     </div>
     <p id="checkout-return-note" hidden>After Patreon checkout, return to this page and refresh links.</p>
-    <script src="/assets/js/age-gate.js?v=20260930a" defer></script>
-    <script src="/assets/js/downloads.js?v=20260930a" defer></script>
+    <script src="/assets/js/age-gate.js?v=20261001a" defer></script>
+    <script src="/assets/js/downloads.js?v=20261001a" defer></script>
   </body>
 </html>

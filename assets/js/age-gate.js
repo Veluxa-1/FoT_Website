@@ -47,11 +47,15 @@
     if (initialized) return;
 
     var modal = qs('#age-modal');
-    if (!modal) return;
+    if (!modal) {
+      document.documentElement.classList.remove('age-pending');
+      return;
+    }
 
     initialized = true;
 
     function show() {
+      document.documentElement.classList.add('age-pending');
       modal.setAttribute('aria-hidden', 'false');
       document.body.classList.add('age-locked');
       track('age_gate_shown');
@@ -59,6 +63,7 @@
 
     function hide() {
       modal.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('age-pending');
       document.body.classList.remove('age-locked');
     }
 
@@ -90,7 +95,11 @@
       }
     });
 
-    if (!confirmed()) show();
+    if (!confirmed()) {
+      show();
+    } else {
+      hide();
+    }
   }
 
   window.FOTInitAgeGate = initAgeGate;

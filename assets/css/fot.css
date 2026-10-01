@@ -136,8 +136,46 @@ img {
  border: 1px solid var(--fot-line-strong) !important;
 }
 
+html.age-pending,
+body.age-locked {
+ overflow: hidden;
+}
+
+html.age-pending #age-modal {
+ display: flex;
+}
+
+html.age-pending body > *:not(#age-modal),
 body.age-locked > *:not(#age-modal) {
+ display: none !important;
+ filter: none !important;
  pointer-events: none;
+ user-select: none;
+}
+
+#work,
+#throxxa,
+#free,
+#support,
+#footer {
+ content-visibility: auto;
+ contain-intrinsic-size: 900px;
+}
+
+#throxxa {
+ contain-intrinsic-size: 1180px;
+}
+
+#free {
+ contain-intrinsic-size: 840px;
+}
+
+#support {
+ contain-intrinsic-size: 620px;
+}
+
+#footer {
+ contain-intrinsic-size: 360px;
 }
 
 /* ---- Header ---- */

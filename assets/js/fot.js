@@ -978,7 +978,7 @@
     var note = qs('#free-posts-note');
     if (!grid) return;
 
-    var posts = (data && data.posts) || [];
+    var posts = ((data && data.posts) || []).slice(0, 6);
     if (!posts.length) {
       grid.innerHTML =
         '<p class="posts-empty">' + escapeHtml(t('free.empty')) + ' <a href="https://www.patreon.com/futaontop" target="_blank" rel="noopener noreferrer">' + escapeHtml(t('art.openPatreon')) + '</a>.</p>';
@@ -1455,7 +1455,8 @@
       });
     });
 
-    function goTo(n) {
+    function goTo(n, options) {
+      options = options || {};
       var page = Number(n) === 2 ? 2 : 1;
       page1.classList.toggle('is-on', page === 1);
       page2.classList.toggle('is-on', page === 2);
@@ -1475,9 +1476,11 @@
         tab.tabIndex = on ? 0 : -1;
       });
 
-      qsa('.vb-main', page === 1 ? page1 : page2).forEach(function (main) {
-        main.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-      });
+      if (options.resetScroll) {
+        qsa('.vb-main', page === 1 ? page1 : page2).forEach(function (main) {
+          main.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        });
+      }
 
       if (indexEl) indexEl.textContent = t('vb.page', { page: '0' + page });
 
@@ -1494,7 +1497,7 @@
           click_context: el.closest('.vb-tabs') ? 'tab' : 'inline_button',
           transport_type: 'beacon'
         });
-        goTo(page);
+        goTo(page, { resetScroll: true });
         if (!el.closest('.vb-tabs')) {
           root.closest('.throxxa-section').scrollIntoView({ block: 'start' });
           tabs[page - 1].focus({ preventScroll: true });
@@ -1502,7 +1505,7 @@
       });
     });
 
-    goTo(1);
+    goTo(1, { resetScroll: false });
   }
 
   function analyticsDestinationFor(url) {
@@ -1710,11 +1713,11 @@
     initLanguageSwitcher();
     initAgeGate();
     initFastAnchors();
-    initVowbound();
     initHeaderScroll();
     markExternal();
     initAnalyticsEvents();
 
+    runWhenNear('#throxxa', initVowbound);
     runWhenNear('#work', loadRedgifs);
     runWhenNear('#free', loadFreePosts);
   });

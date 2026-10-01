@@ -15,7 +15,7 @@ const OUT = path.join(ROOT, 'data', 'free-posts.json');
 
 const CAMPAIGN_ID = '11373558';
 const PATREON_URL = 'https://www.patreon.com/futaontop';
-const MAX_POSTS = 12;
+const MAX_POSTS = 6;
 const EXCERPT_LEN = 160;
 
 function walkText(node, parts) {
