@@ -55,6 +55,19 @@
     </script>
   </head>
   <body class="downloads-page bonus-page" data-download-config="/data/bonus.json">
+    <div id="age-modal" class="age-modal" role="dialog" aria-modal="true" aria-labelledby="age-title" aria-hidden="true">
+      <div class="age-modal__backdrop"></div>
+      <div class="age-modal__dialog">
+        <div class="age-modal__badge" data-i18n="age.badge">18+ Adult Content</div>
+        <h2 id="age-title" data-i18n="age.title">Are you 18 or older?</h2>
+        <p data-i18n="age.text">Explicit futa games and art. Confirm you are an adult to enter.</p>
+        <div class="age-modal__actions">
+          <button id="age-accept" class="btn btn--green" type="button" data-i18n="age.accept">Yes - I'm 18+</button>
+          <button id="age-decline" class="btn btn--white" type="button" data-i18n="age.decline">No - Leave</button>
+        </div>
+      </div>
+    </div>
+
     <header id="header">
       <h1><a href="/">Futa on <span>Top</span></a></h1>
       <nav aria-label="Primary">
@@ -116,6 +129,7 @@
 </main>
     </div>
     <p id="checkout-return-note" hidden>After Patreon checkout, return to this page and refresh links.</p>
-    <script src="/assets/js/downloads.js?v=20260929b" defer></script>
+    <script src="/assets/js/age-gate.js?v=20260930a" defer></script>
+    <script src="/assets/js/downloads.js?v=20260930a" defer></script>
   </body>
 </html>

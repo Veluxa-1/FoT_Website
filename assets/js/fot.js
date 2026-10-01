@@ -1089,6 +1089,11 @@
   }
 
   function initAgeGate() {
+    if (typeof window.FOTInitAgeGate === 'function') {
+      window.FOTInitAgeGate();
+      return;
+    }
+
     var modal = qs('#age-modal');
     if (!modal) return;
 

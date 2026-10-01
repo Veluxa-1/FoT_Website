@@ -10,6 +10,13 @@
     en: {
       htmlLang: 'en',
       nav: { games: 'Games', art: 'Art', news: 'News', bonus: 'Bonus' },
+      age: {
+        badge: '18+ Adult Content',
+        title: 'Are you 18 or older?',
+        text: 'Explicit futa games and art. Confirm you are an adult to enter.',
+        accept: "Yes - I'm 18+",
+        decline: 'No - Leave'
+      },
       bonus: { kicker: 'Patron Bonus', availableFiles: 'Available bonus files', images: '15 images', animations: '2 animations' },
       auth: {
         checkAccess: 'Check access',
@@ -57,6 +64,13 @@
     zh: {
       htmlLang: 'zh-Hans',
       nav: { games: '游戏', art: '美术', news: '新闻', bonus: '奖励' },
+      age: {
+        badge: '18+ 成人内容',
+        title: '你已年满 18 岁吗？',
+        text: '本站包含露骨的扶她游戏和美术内容。请确认你是成年人后继续。',
+        accept: '是，我已满 18 岁',
+        decline: '否，离开'
+      },
       bonus: { kicker: '赞助者奖励', availableFiles: '可下载的奖励文件', images: '15 张图片', animations: '2 个动画' },
       auth: {
         checkAccess: '检查权限',
@@ -104,6 +118,13 @@
     ru: {
       htmlLang: 'ru',
       nav: { games: 'Игры', art: 'Арт', news: 'Новости', bonus: 'Бонус' },
+      age: {
+        badge: '18+ контент для взрослых',
+        title: 'Вам уже есть 18?',
+        text: 'На сайте есть откровенные фута-игры и арты. Подтвердите возраст, чтобы войти.',
+        accept: 'Да, мне есть 18+',
+        decline: 'Нет, уйти'
+      },
       bonus: { kicker: 'Бонус для патронов', availableFiles: 'Доступные бонусные файлы', images: '15 изображений', animations: '2 анимации' },
       auth: {
         checkAccess: 'Проверить доступ',
@@ -151,6 +172,13 @@
     fr: {
       htmlLang: 'fr',
       nav: { games: 'Jeux', art: 'Art', news: 'Actus', bonus: 'Bonus' },
+      age: {
+        badge: 'Contenu adulte 18+',
+        title: 'As-tu 18 ans ou plus ?',
+        text: 'Jeux et art futa explicites. Confirme que tu es adulte pour entrer.',
+        accept: "Oui - j'ai 18+",
+        decline: 'Non - partir'
+      },
       bonus: { kicker: 'Bonus Patreon', availableFiles: 'Fichiers bonus disponibles', images: '15 images', animations: '2 animations' },
       auth: {
         checkAccess: 'Vérifier l’accès',
